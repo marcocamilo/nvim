@@ -19,8 +19,10 @@ keymap("n", "X", "D", opts)
 
 -- Better delete
 keymap("n", "d", '"_d', opts)
-keymap("n", "D", '"_D', opts)
 keymap("v", "d", '"_d', opts)
+keymap("n", "<Del>", '"_dl', opts)
+keymap("v", "<Del>", '"_dl', opts)
+keymap("n", "D", '"_D', opts)
 
 -- Better change
 keymap("n", "c", '"_c', opts)
@@ -38,6 +40,16 @@ keymap("v", "<S-j>", ":MoveBlock(1)<CR>", opts)
 keymap("v", "<S-k>", ":MoveBlock(-1)<CR>", opts)
 keymap("v", "<C-h>", ":MoveHBlock(-1)<CR>", opts)
 keymap("v", "<C-l>", ":MoveHBlock(1)<CR>", opts)
+
+-- Control Indentation
+keymap("n", "<", "<<", { desc = "Indent left" }, opts)
+keymap("n", ">", ">>", { desc = "Indent right" }, opts)
+keymap("v", "<", "<gv", { desc = "Indent left" }, opts)
+keymap("v", ">", ">gv", { desc = "Indent right" }, opts)
+
+-- Comment
+keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
+keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", opts)
 
 ------------------------------------------------
 -- BUFFERS, WINDOWS AND TABS -------------------
@@ -61,7 +73,7 @@ keymap("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) --
 
 -- Tab Management
 keymap("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
-keymap("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
+keymap("n", "<leader>tq", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
 keymap("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 keymap("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
@@ -80,18 +92,19 @@ keymap("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in 
 -- NORMAL --------------------------------------
 ------------------------------------------------
 -- Write
-keymap("n", "<leader>w", ":w<CR>", opts)
+keymap("n", "<leader>w", ":w<CR>", { desc = "Write" }, opts)
+
 -- Write and quit
-keymap("n", "<leader>W", ":wq<CR>", opts)
+keymap("n", "<leader>W", ":wq<CR>", { desc = "Write and Quit" }, opts)
 
 -- Quit
-keymap("n", "<leader>Q", ":q<CR>", opts)
+keymap("n", "<leader>q", ":q<CR>", { desc = "Quit" }, opts)
 
--- Alpha (return to homescreen)
-keymap("n", "<leader>;", ":Alpha<CR>", opts)
+-- Quit without save
+keymap("n", "<leader>Q", ":q!<CR>", { desc = "Quit" }, opts)
 
 -- Clear highlights
-keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
+keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", { desc = "No highlights" }, opts)
 
 ------------------------------------------------
 -- Insert --------------------------------------
@@ -102,15 +115,19 @@ keymap("i", "jk", "<ESC>", opts)
 ------------------------------------------------
 -- Visual --------------------------------------
 ------------------------------------------------
--- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+
+------------------------------------------------
+-- SNIPPETS ------------------------------------
+------------------------------------------------
+keymap("n", "<leader>xp", "o```{python}<cr>```<esc>O", { desc = "Python code chunk" }, opts)
+keymap("n", "<leader>xr", "o```{r}<cr>```<esc>O", { desc = "R code chunk" }, opts)
+keymap("n", "<leader>xt", "o```{=tex}<cr>```<esc>O", { desc = "TeX code chunk" }, opts)
 
 ------------------------------------------------
 -- Plugins--------------------------------------
 ------------------------------------------------
 -- NvimTree
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+-- keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- Telescope
 -- keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
@@ -121,9 +138,6 @@ keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 -- Git
 -- keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 
--- Comment
-keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
-keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", opts)
 
 -- DAP
 -- keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
@@ -139,24 +153,21 @@ keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(v
 -- Lsp
 -- keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
 
+-- Alpha
+-- keymap("n", "<leader>a", "<cmd>Alpha<cr>", { desc = "Alpha" }, opts)
+
 -- Markdown Preview
-keymap("n", "<leader>mv", ":MarkdownPreviewToggle<CR>", opts)
+-- keymap("n", "<leader>mv", ":MarkdownPreviewToggle<CR>", opts)
 
 -- VimTeX
-keymap("n", "<leader>txc", ":VimtexCompile<CR>", opts)
-keymap("n", "<leader>txv", ":VimtexView<CR>", opts)
-
--- LF
-keymap("n", "lf", ":Lf<CR>", opts)
+-- keymap("n", "<leader>txc", ":VimtexCompile<CR>", opts)
+-- keymap("n", "<leader>txv", ":VimtexView<CR>", opts)
 
 -- Quarto
-keymap("n", "<leader>qp", ":QuartoPreview", opts)
+-- keymap("n", "<leader>qp", ":QuartoPreview", opts)
 
 -- Lazy
-keymap("n", "<leader>L", ":Lazy<CR>", opts)
+-- keymap("n", "<leader>L", ":Lazy<CR>", opts)
 
 -- Mason
-keymap("n", "<leader>M", ":Mason<CR>", opts)
-
--- Markdown Headers
-keymap("n", "<leader>mh", ":MarkdownHeaders<CR>", opts)
+-- keymap("n", "<leader>M", ":Mason<CR>", opts)
