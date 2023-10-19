@@ -79,6 +79,8 @@ keymap("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in 
 ------------------------------------------------
 -- NORMAL --------------------------------------
 ------------------------------------------------
+-- Write
+keymap("n", "<leader>w", ":w<CR>", opts)
 -- Write and quit
 keymap("n", "<leader>W", ":wq<CR>", opts)
 
