@@ -20,8 +20,6 @@ keymap("n", "X", "D", opts)
 -- Better delete
 keymap("n", "d", '"_d', opts)
 keymap("v", "d", '"_d', opts)
-keymap("n", "<Del>", '"_dl', opts)
-keymap("v", "<Del>", '"_dl', opts)
 keymap("n", "D", '"_D', opts)
 
 -- Better change
@@ -123,51 +121,3 @@ keymap("n", "<leader>xp", "o```{python}<cr>```<esc>O", { desc = "Python code chu
 keymap("n", "<leader>xr", "o```{r}<cr>```<esc>O", { desc = "R code chunk" }, opts)
 keymap("n", "<leader>xt", "o```{=tex}<cr>```<esc>O", { desc = "TeX code chunk" }, opts)
 
-------------------------------------------------
--- Plugins--------------------------------------
-------------------------------------------------
--- NvimTree
--- keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
-
--- Telescope
--- keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
--- keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
--- keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
--- keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
-
--- Git
--- keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
-
-
--- DAP
--- keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
--- keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
--- keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", opts)
--- keymap("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", opts)
--- keymap("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", opts)
--- keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
--- keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
--- keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
--- keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
-
--- Lsp
--- keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
-
--- Alpha
--- keymap("n", "<leader>a", "<cmd>Alpha<cr>", { desc = "Alpha" }, opts)
-
--- Markdown Preview
--- keymap("n", "<leader>mv", ":MarkdownPreviewToggle<CR>", opts)
-
--- VimTeX
--- keymap("n", "<leader>txc", ":VimtexCompile<CR>", opts)
--- keymap("n", "<leader>txv", ":VimtexView<CR>", opts)
-
--- Quarto
--- keymap("n", "<leader>qp", ":QuartoPreview", opts)
-
--- Lazy
--- keymap("n", "<leader>L", ":Lazy<CR>", opts)
-
--- Mason
--- keymap("n", "<leader>M", ":Mason<CR>", opts)
