@@ -99,7 +99,7 @@ keymap("n", "<leader>W", ":wq<CR>", { desc = "Write and Quit" }, opts)
 keymap("n", "<leader>q", ":q<CR>", { desc = "Quit" }, opts)
 
 -- Quit without save
-keymap("n", "<leader>Q", ":q!<CR>", { desc = "Quit" }, opts)
+-- keymap("n", "<leader>Q", ":q!<CR>", { desc = "Quit (No Save)" }, opts)
 
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", { desc = "No highlights" }, opts)
