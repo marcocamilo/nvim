@@ -11,7 +11,7 @@ return {
 				-- javascriptreact = { "prettier" },
 				-- typescriptreact = { "prettier" },
 				-- svelte = { "prettier" },
-        bib = { "bibtex-tidy" },
+				bib = { "bibtex-tidy" },
 				css = { "prettier" },
 				graphql = { "prettier" },
 				html = { "prettier" },
@@ -19,7 +19,7 @@ return {
 				lua = { "stylua" },
 				markdown = { "mdformat" },
 				python = { "isort", "black" },
-				latex = { "latexindent"},
+				latex = { "latexindent" },
 				yaml = { "prettier" },
 			},
 			-- format_on_save = {
@@ -35,6 +35,6 @@ return {
 				async = false,
 				timeout_ms = 2000,
 			})
-		end, { desc = "Format file or range (in visual mode)" })
+		end, { desc = "Make pretty with formatter" })
 	end,
 }
