@@ -155,6 +155,7 @@ return {
       ------------------
       -- MAPPINGS
       ------------------
+      -- LSP
 			l = {
 				name = "LSP",
 				a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -186,12 +187,13 @@ return {
 					"Workspace Symbols",
 				},
 			},
+      -- SEARCH
 			s = {
 				name = "Search",
 				c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
 				h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
 				M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-				r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+				r = { "<cmd>SearchBoxReplace<cr>", "Search and Replace" },
 				R = { "<cmd>Telescope registers<cr>", "Registers" },
 				k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 				C = { "<cmd>Telescope commands<cr>", "Commands" },
