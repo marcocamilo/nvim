@@ -16,11 +16,6 @@ return {
 		-- import cmp-nvim-lsp plugin
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-		local util = require("lspconfig.util")
-
-		-- import typescript plugin
-		local typescript = require("typescript")
-
 		local keymap = vim.keymap -- for conciseness
 
 		-- enable keybinds only for when lsp server available
@@ -50,10 +45,10 @@ return {
 			opts.desc = "Smart rename"
 			keymap.set("n", "<leader>rn", ":IncRename ", opts) -- smart rename
 
-			opts.desc = "Show buffer diagnostics"
+			opts.desc = "Buffer diagnostics"
 			keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
 
-			opts.desc = "Show line diagnostics"
+			opts.desc = "Line diagnostics"
 			keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
 
 			opts.desc = "Go to previous diagnostic"
@@ -68,17 +63,6 @@ return {
 			opts.desc = "Restart LSP"
 			keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
 
-			-- typescript specific keymaps (e.g. rename file and update imports)
-			if client.name == "tsserver" then
-				opts.desc = "Rename file and update file imports"
-				keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>") -- rename file and update imports
-
-				opts.desc = "Rename file and update file imports"
-				keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>", opts) -- organize imports (not in youtube nvim video)
-
-				opts.desc = "Remove unused imports"
-				keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>", opts) -- remove unused variables (not in youtube nvim video)
-			end
 		end
 
 		-- used to enable autocompletion (assign to every lsp server config)
@@ -104,31 +88,27 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			flags = lsp_flags,
-			filetypes = { "python" },
 		})
 		lspconfig["pylsp"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 			flags = lsp_flags,
-			filetypes = { "python" },
 		})
 		lspconfig["jedi_language_server"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 			flags = lsp_flags,
-			filetypes = { "python" },
 		})
 
 		-- LaTeX
 		lspconfig["ltex"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			filetypes = { "tex", "rmd", "quarto" },
 		})
 		lspconfig["texlab"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			filetypes = { "tex", "rmd", "quarto" },
+			filetypes = { "tex", "plaintex", "bib", "rmd", "quarto" },
 		})
 
 		-- Markdown
@@ -143,7 +123,6 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			flags = lsp_flags,
-			-- filetypes = { "rmd" },
 			settings = {
 				r = {
 					lsp = {
@@ -158,7 +137,6 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			flags = lsp_flags,
-			-- filetypes = { "rmd", "qmd", "yml" },
 		})
 
 		-- configure html server
@@ -167,50 +145,10 @@ return {
 			on_attach = on_attach,
 		})
 
-		-- configure typescript server with plugin
-		typescript.setup({
-			server = {
-				capabilities = capabilities,
-				on_attach = on_attach,
-			},
-		})
-
 		-- configure css server
 		lspconfig["cssls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-		})
-
-		-- configure tailwindcss server
-		lspconfig["tailwindcss"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		-- configure svelte server
-		lspconfig["svelte"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		-- configure prisma orm server
-		lspconfig["prismals"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		-- configure graphql language server
-		lspconfig["graphql"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-		})
-
-		-- configure emmet language server
-		lspconfig["emmet_ls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 		})
 
 		-- configure lua server (with special settings)
