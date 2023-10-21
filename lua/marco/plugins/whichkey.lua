@@ -152,6 +152,9 @@ return {
       -- Mason
       ["M"] = { ":Mason<CR>", "Mason"},
 
+      -- LazyGit
+      ["lg"] = { "<cmd>LazyGit<CR>" , "LazyGit"},
+
       ------------------
       -- MAPPINGS
       ------------------
