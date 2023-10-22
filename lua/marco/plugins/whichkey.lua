@@ -142,6 +142,9 @@ return {
       -- Markdown Preview
       ["mv"] = { ":MarkdownPreviewToggle<CR>", "Markdown Preview" },
 
+      -- Md-Headers
+      ["mh"] = { "<cmd>MarkdownHeaders<CR>", "Markdown Headers" },
+
       -- VimTeX
       ["txc"] = { ":VimtexCompile<CR>", "VimTeX Compile" },
       ["txv"] = { ":VimtexView<CR>", "VimTeX View" },
