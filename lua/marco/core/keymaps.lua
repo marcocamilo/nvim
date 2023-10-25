@@ -21,23 +21,24 @@ keymap("n", "X", "D", opts)
 keymap("n", "d", '"_d', opts)
 keymap("v", "d", '"_d', opts)
 keymap("n", "D", '"_D', opts)
+keymap("n", "<Del>", '"_x', opts)
 
 -- Better change
 keymap("n", "c", '"_c', opts)
 keymap("v", "c", '"_c', opts)
 
 -- Move
-keymap("n", "<S-k>", ":MoveLine(-1)<CR>", opts)
-keymap("n", "<S-j>", ":MoveLine(1)<CR>", opts)
-keymap("n", "<C-.>", ":MoveWord(1)<CR>", opts)
-keymap("n", "<C-,>", ":MoveWord-(1)<CR>", opts)
--- keymap("n", "<C-H>", ":MoveHChar(-1)<CR>", opts)
--- keymap("n", "<C-L>", ":MoveHChar(1)<CR>", opts)
+keymap("n", "<S-k>", "<cmd>MoveLine(-1)<CR>", opts)
+keymap("n", "<S-j>", "<cmd>MoveLine(1)<CR>", opts)
+keymap("n", "<C-.>", "<cmd>MoveWord(1)<CR>", opts)
+keymap("n", "<C-,>", "<cmd>MoveWord-(1)<CR>", opts)
+-- keymap("n", "<C-H>", "<cmd>MoveHChar(-1)<CR>", opts)
+-- keymap("n", "<C-L>", "<cmd>MoveHChar(1)<CR>", opts)
 
-keymap("v", "<S-j>", ":MoveBlock(1)<CR>", opts)
-keymap("v", "<S-k>", ":MoveBlock(-1)<CR>", opts)
-keymap("v", "<C-h>", ":MoveHBlock(-1)<CR>", opts)
-keymap("v", "<C-l>", ":MoveHBlock(1)<CR>", opts)
+keymap("v", "<S-j>", "<cmd>MoveBlock(1)<CR>", opts)
+keymap("v", "<S-k>", "<cmd>MoveBlock(-1)<CR>", opts)
+keymap("v", "<C-h>", "<cmd>MoveHBlock(-1)<CR>", opts)
+keymap("v", "<C-l>", "<cmd>MoveHBlock(1)<CR>", opts)
 
 -- Control Indentation
 keymap("n", "<", "<<", { desc = "Indent left" }, opts)
@@ -53,9 +54,9 @@ keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(v
 -- BUFFERS, WINDOWS AND TABS -------------------
 ------------------------------------------------
 -- Buffer Navigation
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
-keymap("n", "<S-q>", ":bd<CR>", opts) -- close buffers
+keymap("n", "<S-l>", "<cmd>bnext<CR>", opts)
+keymap("n", "<S-h>", "<cmd>bprevious<CR>", opts)
+keymap("n", "<S-q>", "<cmd>bd<CR>", opts) -- close buffers
 
 -- Window Navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -90,16 +91,16 @@ keymap("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in 
 -- NORMAL --------------------------------------
 ------------------------------------------------
 -- Write
-keymap("n", "<leader>w", ":w<CR>", { desc = "Write" }, opts)
+keymap("n", "<leader>w", "<cmd>w<CR>", { desc = "Write" }, opts)
 
 -- Write and quit
-keymap("n", "<leader>W", ":wq<CR>", { desc = "Write and Quit" }, opts)
+keymap("n", "<leader>W", "<cmd>wq<CR>", { desc = "Write and Quit" }, opts)
 
 -- Quit
-keymap("n", "<leader>q", ":q<CR>", { desc = "Quit" }, opts)
+keymap("n", "<leader>q", "<cmd>q<CR>", { desc = "Quit" }, opts)
 
 -- Quit without save
--- keymap("n", "<leader>Q", ":q!<CR>", { desc = "Quit (No Save)" }, opts)
+-- keymap("n", "<leader>Q", "<cmd>q!<CR>", { desc = "Quit (No Save)" }, opts)
 
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", { desc = "No highlights" }, opts)

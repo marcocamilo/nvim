@@ -129,34 +129,37 @@ return {
 			},
 			["f"] = {
 				-- "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-        ":Telescope find_files<CR>",
+        "<cmd>Telescope find_files<CR>",
 				"Find files",
 			},
 			["F"] = {
         -- "<cmd>Telescope live_grep theme=ivy<cr> 
-        ":Telescope live_grep<CR>",
+        "<cmd>Telescope live_grep<CR>",
         "Find Text"
       },
 			["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 
       -- Markdown Preview
-      ["mv"] = { ":MarkdownPreviewToggle<CR>", "Markdown Preview" },
+      ["mv"] = { "<cmd>MarkdownPreviewToggle<CR>", "Markdown Preview" },
 
       -- Md-Headers
       ["mh"] = { "<cmd>MarkdownHeaders<CR>", "Markdown Headers" },
 
       -- VimTeX
-      ["txc"] = { ":VimtexCompile<CR>", "VimTeX Compile" },
-      ["txv"] = { ":VimtexView<CR>", "VimTeX View" },
+      ["txc"] = { "<cmd>VimtexCompile<CR>", "VimTeX Compile" },
+      ["txv"] = { "<cmd>VimtexView<CR>", "VimTeX View" },
 
       -- Lazy
-      ["L"] = { ":Lazy<CR>", "Lazy" },
+      ["L"] = { "<cmd>Lazy<CR>", "Lazy" },
 
       -- Mason
-      ["M"] = { ":Mason<CR>", "Mason"},
+      ["M"] = { "<cmd>Mason<CR>", "Mason"},
 
       -- LazyGit
       ["lg"] = { "<cmd>LazyGit<CR>" , "LazyGit"},
+
+      -- Cheatsheet
+      ["?"] = { "<cmd>Cheatsheet<CR>", "Cheatsheet"},
 
       ------------------
       -- MAPPINGS
@@ -207,17 +210,17 @@ return {
 
 			-- q = {
 			-- 	name = "Quarto",
-			-- 	a = { ":QuartoActivate<cr>", "activate" },
-			-- 	p = { ":lua require'quarto'.quartoPreview()<cr>", "preview" },
-			-- 	q = { ":lua require'quarto'.quartoClosePreview()<cr>", "close" },
-			-- 	h = { ":QuartoHelp ", "help" },
+			-- 	a = { "<cmd>QuartoActivate<cr>", "activate" },
+			-- 	p = { "<cmd>lua require'quarto'.quartoPreview()<cr>", "preview" },
+			-- 	q = { "<cmd>lua require'quarto'.quartoClosePreview()<cr>", "close" },
+			-- 	h = { "<cmd>QuartoHelp ", "help" },
 			-- 	r = {
 			-- 		name = "run",
-			-- 		r = { ":QuartoSendAbove<cr>", "to cursor" },
-			-- 		a = { ":QuartoSendAll<cr>", "all" },
+			-- 		r = { "<cmd>QuartoSendAbove<cr>", "to cursor" },
+			-- 		a = { "<cmd>QuartoSendAll<cr>", "all" },
 			-- 	},
-			-- 	e = { ":lua require'otter'.export()<cr>", "export" },
-			-- 	E = { ":lua require'otter'.export(true)<cr>", "export overwrite" },
+			-- 	e = { "<cmd>lua require'otter'.export()<cr>", "export" },
+			-- 	E = { "<cmd>lua require'otter'.export(true)<cr>", "export overwrite" },
 			-- 	c = {
 			-- 		name = "chunks",
 			-- 		p = { "o```{python}<cr>```<esc>O", "python code chunk" },
