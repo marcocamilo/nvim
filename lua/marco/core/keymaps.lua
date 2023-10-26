@@ -114,6 +114,9 @@ keymap("i", "jk", "<ESC>", opts)
 ------------------------------------------------
 -- Visual --------------------------------------
 ------------------------------------------------
+-- Format Markdown Tables
+keymap("v", "<leader>mt", "!pandoc -t markdown-simple_tables<CR>",
+  { desc = 'Align Mardown Table Using Pandoc' }, opts)
 
 ------------------------------------------------
 -- SNIPPETS ------------------------------------
