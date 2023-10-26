@@ -138,6 +138,7 @@ return {
         "Find Text"
       },
 			["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+      ["tb"] = { "<cmd>Telescope bibtex<cr>", "Telescope BibTeX"},
 
       -- Markdown Preview
       ["mv"] = { "<cmd>MarkdownPreviewToggle<CR>", "Markdown Preview" },
