@@ -7,8 +7,6 @@ return {
       vim.g.VM_maps = {
   --       -- Default Keymappings
           ["Mouse Cursor"] = '<M-LeftMouse>',
-          ["Add Cursor Up"] = '<C-k>',
-          ["Add Cursor Down"] = '<C-j>',
       }
   end,
 }
