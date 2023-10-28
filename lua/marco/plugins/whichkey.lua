@@ -4,10 +4,10 @@ return {
 	init = function()
 		vim.o.timeout = true
 		vim.o.timeoutlen = 300
-    ------------------------------------
-    -- SETUP
-    ------------------------------------
-		local setup = {
+--  ╭──────────────────────────────────────────────────────────╮
+--  │ SETUP                                                    │
+--  ╰──────────────────────────────────────────────────────────╯
+    local setup = {
       plugins = {
         marks = true, -- shows a list of your marks on ' and `
         registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
@@ -95,10 +95,10 @@ return {
         filetypes = {},
       },
 		}
-    ------------------------------------
-    -- OPTIONS
-    ------------------------------------
-		local opts = {
+--  ╭──────────────────────────────────────────────────────────╮
+--  │ OPTIONS                                                  │
+--  ╰──────────────────────────────────────────────────────────╯
+    local opts = {
       mode = "n", -- NORMAL mode
       -- prefix: use "<leader>f" for example for mapping everything related to finding files
       -- the prefix is prepended to every mapping part of `mappings`
@@ -109,13 +109,11 @@ return {
       nowait = false, -- use `nowait` when creating keymaps
       expr = false, -- use `expr` when creating keymaps
 		}
-    ------------------------------------
-    -- MAPPINGS
-    ------------------------------------
-		local mappings = {
-      ------------------
+--  ╭──────────────────────────────────────────────────────────╮
+--  │ MAPPINGS                                                 │
+--  ╰──────────────────────────────────────────────────────────╯
+    local mappings = {
       -- PLUGINS
-      ------------------
       -- Alpha
 			["a"] = { "<cmd>Alpha<cr>", "Alpha" },
 
@@ -162,13 +160,13 @@ return {
       -- Cheatsheet
       ["?"] = { "<cmd>Cheatsheet<CR>", "Cheatsheet"},
 
-      ------------------
-      -- MAPPINGS
-      ------------------
+--  ╭──────────────────────────────────────────────────────────╮
+--  │ MAPPINGS                                                 │
+--  ╰──────────────────────────────────────────────────────────╯
       -- LSP
 			l = {
 				name = "LSP",
-				a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+				a = { "<cmd>lua vWm.lsp.buf.code_action()<cr>", "Code Action" },
 				d = {
 					"<cmd>Telescope diagnostics bufnr=0<cr>",
 					"Document Diagnostics",
@@ -209,6 +207,30 @@ return {
 				C = { "<cmd>Telescope commands<cr>", "Commands" },
 			},
 
+      -- Comment Box
+      c = {
+        b = {
+          name = "Comment Box",
+          l = {
+            name = "Left aligned box",
+            l = { "<cmd>CBllbox<CR>", "Left aligned text" },
+            c = { "<cmd>CBlcbox<CR>", "Left aligned text" },
+            r = { "<cmd>CBlrbox<CR>", "Left aligned text" },
+          },
+          c = {
+            name = "Center aligned box",
+            l = { "<cmd>CBclbox<CR>", "Left aligned text" },
+            c = { "<cmd>CBccbox<CR>", "Left aligned text" },
+            r = { "<cmd>CBcrbox<CR>", "Left aligned text" },
+          },
+          r = {
+            name = "Right aligned box",
+            l = { "<cmd>CBrlbox<CR>", "Left aligned text" },
+            c = { "<cmd>CBrcbox<CR>", "Left aligned text" },
+            r = { "<cmd>CBrrbox<CR>", "Left aligned text" },
+          },
+        },
+      },
 			-- q = {
 			-- 	name = "Quarto",
 			-- 	a = { "<cmd>QuartoActivate<cr>", "activate" },
