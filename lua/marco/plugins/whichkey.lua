@@ -121,10 +121,10 @@ return {
       ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 
       -- Telescope
-			["b"] = {
-				"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-				"Buffers",
-			},
+			-- ["b"] = {
+			-- 	"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+			-- 	"Buffers",
+			-- },
 			["f"] = {
 				-- "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
         "<cmd>Telescope find_files<CR>",
@@ -136,7 +136,7 @@ return {
         "Find Text"
       },
 			["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-      ["tb"] = { "<cmd>Telescope bibtex<cr>", "Telescope BibTeX"},
+      ["b"] = { "<cmd>Telescope bibtex<cr>", "Telescope BibTeX"},
 
       -- Markdown Preview
       ["mv"] = { "<cmd>MarkdownPreviewToggle<CR>", "Markdown Preview" },

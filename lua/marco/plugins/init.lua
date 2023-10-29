@@ -12,7 +12,4 @@ return {
 
 	-- Move
 	"fedepujol/move.nvim",
-
-  -- Comment Box
-  "LudoPinelli/comment-box.nvim",
 }
