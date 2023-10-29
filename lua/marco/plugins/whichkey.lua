@@ -4,9 +4,9 @@ return {
 	init = function()
 		vim.o.timeout = true
 		vim.o.timeoutlen = 300
---  ╭──────────────────────────────────────────────────────────╮
---  │ SETUP                                                    │
---  ╰──────────────────────────────────────────────────────────╯
+--  ┌────────────────────────────────────────────────────────────────────┐
+--                                  SETUP
+--  └────────────────────────────────────────────────────────────────────┘
     local setup = {
       plugins = {
         marks = true, -- shows a list of your marks on ' and `
@@ -95,9 +95,9 @@ return {
         filetypes = {},
       },
 		}
---  ╭──────────────────────────────────────────────────────────╮
---  │ OPTIONS                                                  │
---  ╰──────────────────────────────────────────────────────────╯
+--  ┌────────────────────────────────────────────────────────────────────┐
+--                                 OPTIONS
+--  └────────────────────────────────────────────────────────────────────┘
     local opts = {
       mode = "n", -- NORMAL mode
       -- prefix: use "<leader>f" for example for mapping everything related to finding files
@@ -109,55 +109,55 @@ return {
       nowait = false, -- use `nowait` when creating keymaps
       expr = false, -- use `expr` when creating keymaps
 		}
---  ╭──────────────────────────────────────────────────────────╮
---  │ MAPPINGS                                                 │
---  ╰──────────────────────────────────────────────────────────╯
+--  ┌────────────────────────────────────────────────────────────────────┐
+--                                 MAPPINGS
+--  └────────────────────────────────────────────────────────────────────┘
     local mappings = {
-      -- PLUGINS
-      -- Alpha
+--  ┌────────────────────────────────────────────────────────────────────┐
+--    Plugins                                                            
+--  └────────────────────────────────────────────────────────────────────┘
+      -- ALPHA
 			["a"] = { "<cmd>Alpha<cr>", "Alpha" },
 
-      -- NvimTree
+      -- NVIMTREE
       ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 
-      -- Telescope
+      -- TELESCOPE
 			-- ["b"] = {
 			-- 	"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 			-- 	"Buffers",
 			-- },
 			["f"] = {
-				-- "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
         "<cmd>Telescope find_files<CR>",
 				"Find files",
 			},
 			["F"] = {
-        -- "<cmd>Telescope live_grep theme=ivy<cr> 
         "<cmd>Telescope live_grep<CR>",
         "Find Text"
       },
 			["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
       ["b"] = { "<cmd>Telescope bibtex<cr>", "Telescope BibTeX"},
 
-      -- Markdown Preview
+      -- MARKDOWN PREVIEW
       ["mv"] = { "<cmd>MarkdownPreviewToggle<CR>", "Markdown Preview" },
 
-      -- Md-Headers
+      -- MD-HEADERS
       ["mh"] = { "<cmd>MarkdownHeaders<CR>", "Markdown Headers" },
 
-      -- VimTeX
+      -- VIMTEX
       ["txc"] = { "<cmd>VimtexCompile<CR>", "VimTeX Compile" },
       ["txv"] = { "<cmd>VimtexView<CR>", "VimTeX View" },
 
-      -- Lazy
+      -- LAZY
       ["L"] = { "<cmd>Lazy<CR>", "Lazy" },
 
-      -- Mason
+      -- MASON
       ["M"] = { "<cmd>Mason<CR>", "Mason"},
 
-      -- LazyGit
+      -- LAZYGIT
       ["lg"] = { "<cmd>LazyGit<CR>" , "LazyGit"},
 
-      -- Cheatsheet
+      -- CHEATSHEET
       ["?"] = { "<cmd>Cheatsheet<CR>", "Cheatsheet"},
 
 --  ╭──────────────────────────────────────────────────────────╮
@@ -205,6 +205,11 @@ return {
 				R = { "<cmd>Telescope registers<cr>", "Registers" },
 				k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 				C = { "<cmd>Telescope commands<cr>", "Commands" },
+        s = { 
+          "<cmd>set spell!<cr>", "Spell check"
+          -- "<cmd>lua require('telescope.builtin').spell_suggest()"
+        },
+        -- Add keymaps for languages?
 			},
 
       -- Comment Box
