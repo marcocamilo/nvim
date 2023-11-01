@@ -124,4 +124,3 @@ keymap("v", "<leader>mt", "!pandoc -t markdown-simple_tables<CR>",
 keymap("n", "<leader>xp", "o```{python}<cr>```<esc>O", { desc = "Python code chunk" }, opts)
 keymap("n", "<leader>xr", "o```{r}<cr>```<esc>O", { desc = "R code chunk" }, opts)
 keymap("n", "<leader>xt", "o```{=tex}<cr>```<esc>O", { desc = "TeX code chunk" }, opts)
-
