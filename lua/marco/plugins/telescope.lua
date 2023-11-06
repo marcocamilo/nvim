@@ -1,7 +1,7 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	-- commit = vim.fn.has("nvim-0.9.0") == 0 and "057ee0f8783" or nil,
-  branch = "0.1.x",
+	branch = "0.1.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
@@ -26,6 +26,12 @@ return {
 				colorscheme = {
 					enable_preview = true,
 				},
+        find_files = {
+          theme = "dropdown",
+        },
+        live_grep = {
+          theme = "dropdown",
+        },
 			},
 		})
 
