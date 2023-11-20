@@ -9,7 +9,7 @@ return {
 		"saadparwaiz1/cmp_luasnip", -- for autocompletion
 		"rafamadriz/friendly-snippets", -- useful snippets
 	},
-  
+
 	config = function()
 		local cmp = require("cmp")
 
@@ -69,10 +69,28 @@ return {
 			}),
 			-- configure lspkind for vs-code like icons
 			formatting = {
-				format = lspkind.cmp_format({
-					maxwidth = 50,
-					ellipsis_char = "...",
-					menu = {
+				-- format = lspkind.cmp_format({
+				-- 	maxwidth = 50,
+				-- 	ellipsis_char = "...",
+				-- 	menu = {
+				-- 		otter = "[🦦]",
+				-- 		copilot = "[]",
+				-- 		luasnip = "[snip]",
+				-- 		nvim_lsp = "[LSP]",
+				-- 		buffer = "[buf]",
+				-- 		path = "[path]",
+				-- 		spell = "[spell]",
+				-- 		pandoc_references = "[ref]",
+				-- 		tags = "[tag]",
+				-- 		treesitter = "[TS]",
+				-- 		calc = "[calc]",
+				-- 		latex_symbols = "[tex]",
+				-- 		emoji = "[emoji]",
+				-- 	},
+				-- }),
+        -- Format fucntion
+				format = function(entry, vim_item)
+					local icons = {
 						otter = "[🦦]",
 						copilot = "[]",
 						luasnip = "[snip]",
@@ -86,8 +104,18 @@ return {
 						calc = "[calc]",
 						latex_symbols = "[tex]",
 						emoji = "[emoji]",
-					},
-				}),
+					}
+
+					-- If the entry is from the LSP source, add the LSP server information if available
+					if entry.source.name == "nvim_lsp" then
+						vim_item.menu =
+							string.format("%s %s", icons[entry.source.name], entry.source.source.client.name)
+					else
+						vim_item.menu = icons[entry.source.name]
+					end
+
+					return vim_item
+        end
 			},
 		})
 	end,
