@@ -50,6 +50,12 @@ keymap("v", ">", ">gv", { desc = "Indent right" }, opts)
 keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
 keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", opts)
 
+-- Sending Lines to Terminal (Toggle Term)
+keymap("n", "<C-Enter>", "<cmd>ToggleTermSendCurrentLine<CR>", {desc = "Send current line to ToggleTerm" }, opts)
+keymap("n", "<C-A-b>", "<C-v>gg<cmd>ToggleTermSendVisualLines<CR><esc>''", {desc = "Run from document beginning to current line (ToggleTerm)" }, opts)
+-- keymap("n", "<C-A-e>", "<C-v>G<cmd>ToggleTermSendVisualLines<CR><esc>''", {desc = "Run from current line to document end (ToggleTerm)" }, opts)
+-- keymap("n", "<C-A-r>", "gg<C-v>G<cmd>ToggleTermSendVisualLines<CR><esc>", {desc = "Run entire document (ToggleTerm)" }, opts)
+
 ------------------------------------------------
 -- BUFFERS, WINDOWS AND TABS -------------------
 ------------------------------------------------
@@ -71,11 +77,11 @@ keymap("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make
 keymap("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
 -- Tab Management
-keymap("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
-keymap("n", "<leader>tq", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
-keymap("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
-keymap("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
-keymap("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+-- keymap("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
+-- keymap("n", "<leader>tq", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
+-- keymap("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
+-- keymap("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
+-- keymap("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
 ------------------------------------------------
 -- MODES ---------------------------------------

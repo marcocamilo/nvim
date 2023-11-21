@@ -98,8 +98,20 @@ return {
 --  ┌────────────────────────────────────────────────────────────────────┐
 --                                 OPTIONS
 --  └────────────────────────────────────────────────────────────────────┘
-    local opts = {
+    local nopts = {
       mode = "n", -- NORMAL mode
+      -- prefix: use "<leader>f" for example for mapping everything related to finding files
+      -- the prefix is prepended to every mapping part of `mappings`
+      prefix = "<leader>",
+      buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+      silent = true, -- use `silent` when creating keymaps
+      noremap = true, -- use `noremap` when creating keymaps
+      nowait = false, -- use `nowait` when creating keymaps
+      expr = false, -- use `expr` when creating keymaps
+		}
+
+    local vopts = {
+      mode = "v", -- NORMAL mode
       -- prefix: use "<leader>f" for example for mapping everything related to finding files
       -- the prefix is prepended to every mapping part of `mappings`
       prefix = "<leader>",
@@ -112,10 +124,10 @@ return {
 --  ┌────────────────────────────────────────────────────────────────────┐
 --                                 MAPPINGS
 --  └────────────────────────────────────────────────────────────────────┘
-    local mappings = {
 --  ┌────────────────────────────────────────────────────────────────────┐
---    Plugins                                                            
+--                               Normal Mode
 --  └────────────────────────────────────────────────────────────────────┘
+    local n_mappings = {
       -- ALPHA
 			["a"] = { "<cmd>Alpha<cr>", "Alpha" },
 
@@ -144,10 +156,6 @@ return {
       -- MD-HEADERS
       ["mh"] = { "<cmd>MarkdownHeaders<CR>", "Markdown Headers" },
 
-      -- VIMTEX
-      ["txc"] = { "<cmd>VimtexCompile<CR>", "VimTeX Compile" },
-      ["txv"] = { "<cmd>VimtexView<CR>", "VimTeX View" },
-
       -- LAZY
       ["L"] = { "<cmd>Lazy<CR>", "Lazy" },
 
@@ -160,9 +168,6 @@ return {
       -- CHEATSHEET
       ["?"] = { "<cmd>Cheatsheet<CR>", "Cheatsheet"},
 
---  ╭──────────────────────────────────────────────────────────╮
---  │ MAPPINGS                                                 │
---  ╰──────────────────────────────────────────────────────────╯
       -- LSP
 			l = {
 				name = "LSP",
@@ -209,10 +214,9 @@ return {
           "<cmd>set spell!<cr>", "Spell check"
           -- "<cmd>lua require('telescope.builtin').spell_suggest()"
         },
-        -- Add keymaps for languages?
+        -- Add keymaps for spellcheck languages?
 			},
-
-      -- Comment Box
+      -- COMMENT BOX
       c = {
         b = {
           name = "Comment Box",
@@ -236,32 +240,46 @@ return {
           },
         },
       },
-			-- q = {
-			-- 	name = "Quarto",
-			-- 	a = { "<cmd>QuartoActivate<cr>", "activate" },
-			-- 	p = { "<cmd>lua require'quarto'.quartoPreview()<cr>", "preview" },
-			-- 	q = { "<cmd>lua require'quarto'.quartoClosePreview()<cr>", "close" },
-			-- 	h = { "<cmd>QuartoHelp ", "help" },
-			-- 	r = {
-			-- 		name = "run",
-			-- 		r = { "<cmd>QuartoSendAbove<cr>", "to cursor" },
-			-- 		a = { "<cmd>QuartoSendAll<cr>", "all" },
-			-- 	},
-			-- 	e = { "<cmd>lua require'otter'.export()<cr>", "export" },
-			-- 	E = { "<cmd>lua require'otter'.export(true)<cr>", "export overwrite" },
-			-- 	c = {
-			-- 		name = "chunks",
-			-- 		p = { "o```{python}<cr>```<esc>O", "python code chunk" },
-			-- 		r = { "o```{r}<cr>```<esc>O", "r code chunk" },
-			-- 		t = { "o```{=tex}<cr>```<esc>O", "python code chunk" },
-			-- 	},
-			-- },
+      -- T Key
+      t = {
+        x = {
+          name = "VimTeX",
+          ["c"] = { "<cmd>VimtexCompile<CR>", "VimTeX Compile" },
+          ["v"] = { "<cmd>VimtexView<CR>", "VimTeX View" },
+        },
+        ["v"] = { "<cmd>ToggleTerm direction=vertical size=55 name=vertical<CR>", "Toggle Term Vertical" },
+        ["h"] = { "<cmd>ToggleTerm direction=horizontal name=horizontal<CR>", "Toggle Term Horizontal" },
+        ["c"] = { "<cmd>ToggleTerm direction=float<CR>", "Toggle Term Center" },
+        s = {
+          name = "Toggle Term Send",
+          l = { "<cmd>ToggleTermSendCurrentLine<CR>", "Send Current Line" },
+        },
+      },
 		}
-
+--  ┌────────────────────────────────────────────────────────────────────┐
+--                               Visual Mode
+--  └────────────────────────────────────────────────────────────────────┘
+    local v_mappings = {
+      t = {
+        name = "Toggle Term",
+        s = {
+          name = "Toggle Term Send",
+          l = { "<cmd>ToggleTermSendCurrentLine<CR>", "Send Current Line" },
+          v = {
+            name = "Send Visual",
+            l = { "<cmd>ToggleTermSendVisualLines<CR>", "Send Visual Lines" },
+            s = { "<cmd>ToggleTermSendVisualSelection<CR>", "Send Visual Selection" },
+          },
+        },
+      }
+    }
+--  ┌────────────────────────────────────────────────────────────────────┐
+--                                  SETUP
+--  └────────────────────────────────────────────────────────────────────┘
 		local which_key = require("which-key")
 
 		which_key.setup(setup)
-		which_key.register(mappings, opts)
+		which_key.register(n_mappings, nopts)
+		which_key.register(v_mappings, vopts)
 	end,
 }
-
