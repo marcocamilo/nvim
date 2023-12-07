@@ -15,7 +15,7 @@ keymap("v", "p", '"_dP', opts)
 
 -- Better cut
 keymap("n", "x", "d", opts)
-keymap("n", "X", "D", opts)
+keymap("n", "X", "dd", opts)
 
 -- Better delete
 keymap("n", "d", '"_d', opts)
@@ -72,7 +72,7 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Window Management
 keymap("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
-keymap("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
+keymap("n", "<leader>s-", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
 keymap("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 keymap("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 

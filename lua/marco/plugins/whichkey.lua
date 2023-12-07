@@ -134,11 +134,6 @@ return {
       -- NVIMTREE
       ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 
-      -- TELESCOPE
-			-- ["b"] = {
-			-- 	"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-			-- 	"Buffers",
-			-- },
 			["f"] = {
         "<cmd>Telescope find_files<CR>",
 				"Find files",
@@ -167,6 +162,12 @@ return {
 
       -- CHEATSHEET
       ["?"] = { "<cmd>Cheatsheet<CR>", "Cheatsheet"},
+
+      -- TELESCOPE
+			-- ["b"] = {
+			-- 	"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+			-- 	"Buffers",
+			-- },
 
       -- LSP
 			l = {
@@ -210,10 +211,16 @@ return {
 				R = { "<cmd>Telescope registers<cr>", "Registers" },
 				k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 				C = { "<cmd>Telescope commands<cr>", "Commands" },
-        s = { 
+        s = {
           "<cmd>set spell!<cr>", "Spell check"
           -- "<cmd>lua require('telescope.builtin').spell_suggest()"
         },
+        -- n = {
+        --   name = "Notifications",
+        --   l = { "<cmd>:lua require('noice').cmd('last')", desc = "Noice Last Message" },
+        --   h = { "require('noice').cmd('history')", desc = "Noice History" },
+        --   a = { "require('noice').cmd('all')", desc = "Noice All" },
+        -- },
         -- Add keymaps for spellcheck languages?
 			},
       -- COMMENT BOX
