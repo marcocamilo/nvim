@@ -1,12 +1,12 @@
 return {
-	"folke/which-key.nvim",
-	event = "VeryLazy",
-	init = function()
-		vim.o.timeout = true
-		vim.o.timeoutlen = 300
---  ┌────────────────────────────────────────────────────────────────────┐
---                                  SETUP
---  └────────────────────────────────────────────────────────────────────┘
+  "folke/which-key.nvim",
+  event = "VeryLazy",
+  init = function()
+    vim.o.timeout = true
+    vim.o.timeoutlen = 300
+    --  ┌────────────────────────────────────────────────────────────────────┐
+    --                                  SETUP
+    --  └────────────────────────────────────────────────────────────────────┘
     local setup = {
       plugins = {
         marks = true, -- shows a list of your marks on ' and `
@@ -22,9 +22,9 @@ return {
           motions = true, -- adds help for motions
           text_objects = true, -- help for text objects triggered after entering an operator
           windows = true, -- default bindings on <c-w>
-          nav = true, -- misc bindings to work with windows
-          z = true, -- bindings for folds, spelling and others prefixed with z
-          g = true, -- bindings for prefixed with g
+          nav = true,     -- misc bindings to work with windows
+          z = true,       -- bindings for folds, spelling and others prefixed with z
+          g = true,       -- bindings for prefixed with g
         },
       },
       -- add operators that will trigger motion and text object completion
@@ -50,24 +50,24 @@ return {
         scroll_up = "<c-k>", -- binding to scroll up inside the popup
       },
       window = {
-        border = "none", -- none, single, double, shadow
-        position = "bottom", -- bottom, top
+        border = "none",      -- none, single, double, shadow
+        position = "bottom",  -- bottom, top
         margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]. When between 0 and 1, will be treated as a percentage of the screen size.
         padding = { 1, 2, 1, 2 }, -- extra window padding [top, right, bottom, left]
-        winblend = 0, -- value between 0-100 0 for fully opaque and 100 for fully transparent
-        zindex = 1000, -- positive value to position WhichKey above other floating windows.
+        winblend = 0,         -- value between 0-100 0 for fully opaque and 100 for fully transparent
+        zindex = 1000,        -- positive value to position WhichKey above other floating windows.
       },
       layout = {
-        height = { min = 4, max = 25 }, -- min and max height of the columns
-        width = { min = 20, max = 50 }, -- min and max width of the columns
-        spacing = 3, -- spacing between columns
-        align = "left", -- align columns left, center or right
+        height = { min = 4, max = 25 },                                              -- min and max height of the columns
+        width = { min = 20, max = 50 },                                              -- min and max width of the columns
+        spacing = 3,                                                                 -- spacing between columns
+        align = "left",                                                              -- align columns left, center or right
       },
-      ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
+      ignore_missing = false,                                                        -- enable this to hide mappings for which you didn't specify a label
       hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "^:", "^ ", "^call ", "^lua " }, -- hide mapping boilerplate
-      show_help = true, -- show a help message in the command line for using WhichKey
-      show_keys = true, -- show the currently pressed key and its label as a message in the command line
-      triggers = "auto", -- automatically setup triggers
+      show_help = true,                                                              -- show a help message in the command line for using WhichKey
+      show_keys = true,                                                              -- show the currently pressed key and its label as a message in the command line
+      triggers = "auto",                                                             -- automatically setup triggers
       -- triggers = {"<leader>"} -- or specifiy a list manually
       -- list of triggers, where WhichKey should not wait for timeoutlen and show immediately
       triggers_nowait = {
@@ -94,10 +94,10 @@ return {
         buftypes = {},
         filetypes = {},
       },
-		}
---  ┌────────────────────────────────────────────────────────────────────┐
---                                 OPTIONS
---  └────────────────────────────────────────────────────────────────────┘
+    }
+    --  ┌────────────────────────────────────────────────────────────────────┐
+    --                                 OPTIONS
+    --  └────────────────────────────────────────────────────────────────────┘
     local nopts = {
       mode = "n", -- NORMAL mode
       -- prefix: use "<leader>f" for example for mapping everything related to finding files
@@ -108,7 +108,7 @@ return {
       noremap = true, -- use `noremap` when creating keymaps
       nowait = false, -- use `nowait` when creating keymaps
       expr = false, -- use `expr` when creating keymaps
-		}
+    }
 
     local vopts = {
       mode = "v", -- NORMAL mode
@@ -120,109 +120,90 @@ return {
       noremap = true, -- use `noremap` when creating keymaps
       nowait = false, -- use `nowait` when creating keymaps
       expr = false, -- use `expr` when creating keymaps
-		}
---  ┌────────────────────────────────────────────────────────────────────┐
---                                 MAPPINGS
---  └────────────────────────────────────────────────────────────────────┘
---  ┌────────────────────────────────────────────────────────────────────┐
---                               Normal Mode
---  └────────────────────────────────────────────────────────────────────┘
+    }
+    --  ┌────────────────────────────────────────────────────────────────────┐
+    --                                 MAPPINGS
+    --  └────────────────────────────────────────────────────────────────────┘
+    --  ┌────────────────────────────────────────────────────────────────────┐
+    --                               Normal Mode
+    --  └────────────────────────────────────────────────────────────────────┘
     local n_mappings = {
       -- ALPHA
-			["a"] = { "<cmd>Alpha<cr>", "Alpha" },
+      ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
 
       -- NVIMTREE
       ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 
-			["f"] = {
+      ["f"] = {
         "<cmd>Telescope find_files<CR>",
-				"Find files",
-			},
-			["F"] = {
-        "<cmd>Telescope live_grep<CR>",
-        "Find Text"
+        "Find files",
       },
-			["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-      ["b"] = { "<cmd>Telescope bibtex<cr>", "Telescope BibTeX"},
-
-      -- MARKDOWN PREVIEW
-      ["mv"] = { "<cmd>MarkdownPreviewToggle<CR>", "Markdown Preview" },
-
-      -- MD-HEADERS
-      ["mh"] = { "<cmd>MarkdownHeaders<CR>", "Markdown Headers" },
+      ["F"] = {
+        "<cmd>Telescope live_grep<CR>",
+        "Find Text",
+      },
+      ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+      ["b"] = { "<cmd>Telescope bibtex<cr>", "Telescope BibTeX" },
 
       -- LAZY
       ["L"] = { "<cmd>Lazy<CR>", "Lazy" },
 
       -- MASON
-      ["M"] = { "<cmd>Mason<CR>", "Mason"},
+      ["M"] = { "<cmd>Mason<CR>", "Mason" },
 
       -- LAZYGIT
-      ["lg"] = { "<cmd>LazyGit<CR>" , "LazyGit"},
+      ["lg"] = { "<cmd>LazyGit<CR>", "LazyGit" },
 
       -- CHEATSHEET
-      ["?"] = { "<cmd>Cheatsheet<CR>", "Cheatsheet"},
+      ["?"] = { "<cmd>Cheatsheet<CR>", "Cheatsheet" },
 
       -- TELESCOPE
-			-- ["b"] = {
-			-- 	"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-			-- 	"Buffers",
-			-- },
+      -- ["b"] = {
+      -- 	"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+      -- 	"Buffers",
+      -- },
 
+      -- MARKDOWN
+      m = {
+        name = "Markdown",
+        v = { "<cmd>MarkdownPreviewToggle<CR>", "Markdown Preview" },
+        h = { "cmd>MarkdownHeaders<CR>", "Markdown Headers" },
+      },
       -- LSP
-			l = {
-				name = "LSP",
-				a = { "<cmd>lua vWm.lsp.buf.code_action()<cr>", "Code Action" },
-				d = {
-					"<cmd>Telescope diagnostics bufnr=0<cr>",
-					"Document Diagnostics",
-				},
-				w = {
-					"<cmd>Telescope diagnostics<cr>",
-					"Workspace Diagnostics",
-				},
-				f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
-				i = { "<cmd>LspInfo<cr>", "Info" },
-				-- I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-				j = {
-					"<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
-					"Next Diagnostic",
-				},
-				k = {
-					"<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
-					"Prev Diagnostic",
-				},
-				l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-				q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
-				r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-				s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-				S = {
-					"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-					"Workspace Symbols",
-				},
-			},
+      l = {
+        name = "LSP",
+        a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+        D = { "<cmd>Telescope diagnostics bufnr=0<cr>", "Buffer Diagnostics" },
+        d = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Line Diagnostics" },
+        w = { "<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics" },
+        f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
+        i = { "<cmd>LspInfo<cr>", "Info" },
+        j = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "Next Diagnostic" },
+        k = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
+        l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+        q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
+        r = { "<cmd>IncRename", "Smart rename" },
+        R = { "<cmd>LspRestart<CR>", "Restart LSP" },
+        s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+        S = { "cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
+      },
       -- SEARCH
-			s = {
-				name = "Search",
-				c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-				h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-				M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-				r = { "<cmd>SearchBoxReplace<cr>", "Search and Replace" },
-				R = { "<cmd>Telescope registers<cr>", "Registers" },
-				k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-				C = { "<cmd>Telescope commands<cr>", "Commands" },
+      s = {
+        name = "Search",
+        c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+        h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+        M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+        r = { "<cmd>SearchBoxReplace<cr>", "Search and Replace" },
+        R = { "<cmd>Telescope registers<cr>", "Registers" },
+        k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+        C = { "<cmd>Telescope commands<cr>", "Commands" },
         s = {
-          "<cmd>set spell!<cr>", "Spell check"
+          "<cmd>set spell!<cr>",
+          "Spell check",
           -- "<cmd>lua require('telescope.builtin').spell_suggest()"
+          -- Add keymaps for spellcheck languages?
         },
-        -- n = {
-        --   name = "Notifications",
-        --   l = { "<cmd>:lua require('noice').cmd('last')", desc = "Noice Last Message" },
-        --   h = { "require('noice').cmd('history')", desc = "Noice History" },
-        --   a = { "require('noice').cmd('all')", desc = "Noice All" },
-        -- },
-        -- Add keymaps for spellcheck languages?
-			},
+      },
       -- COMMENT BOX
       c = {
         b = {
@@ -262,10 +243,10 @@ return {
           l = { "<cmd>ToggleTermSendCurrentLine<CR>", "Send Current Line" },
         },
       },
-		}
---  ┌────────────────────────────────────────────────────────────────────┐
---                               Visual Mode
---  └────────────────────────────────────────────────────────────────────┘
+    }
+    --  ┌────────────────────────────────────────────────────────────────────┐
+    --                               Visual Mode
+    --  └────────────────────────────────────────────────────────────────────┘
     local v_mappings = {
       t = {
         name = "Toggle Term",
@@ -278,15 +259,15 @@ return {
             s = { "<cmd>ToggleTermSendVisualSelection<CR>", "Send Visual Selection" },
           },
         },
-      }
+      },
     }
---  ┌────────────────────────────────────────────────────────────────────┐
---                                  SETUP
---  └────────────────────────────────────────────────────────────────────┘
-		local which_key = require("which-key")
+    --  ┌────────────────────────────────────────────────────────────────────┐
+    --                                  SETUP
+    --  └────────────────────────────────────────────────────────────────────┘
+    local which_key = require("which-key")
 
-		which_key.setup(setup)
-		which_key.register(n_mappings, nopts)
-		which_key.register(v_mappings, vopts)
-	end,
+    which_key.setup(setup)
+    which_key.register(n_mappings, nopts)
+    which_key.register(v_mappings, vopts)
+  end,
 }
