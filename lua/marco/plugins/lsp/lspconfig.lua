@@ -140,6 +140,7 @@ return {
 		lspconfig["html"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			filetypes = { "markdown", "html" },
 		})
 
 		-- configure css server

@@ -50,3 +50,7 @@ opt.iskeyword:append("-") -- treats words with `-` as single words
 opt.formatoptions:remove({ "c", "r", "o" }) -- This is a sequence of letters which describes how automatic formatting is to be done
 
 opt.backspace = "indent,eol,start"
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.cmd([[ set nofoldenable ]])

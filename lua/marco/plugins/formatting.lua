@@ -33,7 +33,7 @@ return {
 			conform.format({
 				lsp_fallback = true,
 				async = false,
-				timeout_ms = 2500,
+				timeout_ms = 5000,
 			})
 		end, { desc = "Make pretty with formatter" })
 	end,
