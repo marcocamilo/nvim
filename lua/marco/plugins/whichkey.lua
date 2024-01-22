@@ -228,7 +228,7 @@ return {
           },
         },
       },
-      -- T Key
+      -- T KEY
       t = {
         x = {
           name = "VimTeX",
@@ -252,12 +252,7 @@ return {
         name = "Toggle Term",
         s = {
           name = "Toggle Term Send",
-          l = { "<cmd>ToggleTermSendCurrentLine<CR>", "Send Current Line" },
-          v = {
-            name = "Send Visual",
-            l = { "<cmd>ToggleTermSendVisualLines<CR>", "Send Visual Lines" },
-            s = { "<cmd>ToggleTermSendVisualSelection<CR>", "Send Visual Selection" },
-          },
+          l = { "<cmd>ToggleTermSendVisualLines<CR>", "Send Visual Lines" },
         },
       },
     }
