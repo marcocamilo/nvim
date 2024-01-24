@@ -154,9 +154,6 @@ return {
       -- LAZYGIT
       ["lg"] = { "<cmd>LazyGit<CR>", "LazyGit" },
 
-      -- CHEATSHEET
-      ["?"] = { "<cmd>Cheatsheet<CR>", "Cheatsheet" },
-
       -- TELESCOPE
       -- ["b"] = {
       -- 	"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
@@ -188,7 +185,7 @@ return {
         S = { "cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
       },
       -- SEARCH
-      s = {
+      ["?"] = {
         name = "Search",
         c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
         h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
@@ -203,6 +200,7 @@ return {
           -- "<cmd>lua require('telescope.builtin').spell_suggest()"
           -- Add keymaps for spellcheck languages?
         },
+        ["?"] = { "<cmd>Cheatsheet<CR>", "Cheatsheet" },
       },
       -- COMMENT BOX
       c = {
@@ -211,20 +209,20 @@ return {
           l = {
             name = "Left aligned box",
             l = { "<cmd>CBllbox<CR>", "Left aligned text" },
-            c = { "<cmd>CBlcbox<CR>", "Left aligned text" },
-            r = { "<cmd>CBlrbox<CR>", "Left aligned text" },
+            c = { "<cmd>CBlcbox<CR>", "Center aligned text" },
+            r = { "<cmd>CBlrbox<CR>", "Right aligned text" },
           },
           c = {
             name = "Center aligned box",
             l = { "<cmd>CBclbox<CR>", "Left aligned text" },
-            c = { "<cmd>CBccbox<CR>", "Left aligned text" },
-            r = { "<cmd>CBcrbox<CR>", "Left aligned text" },
+            c = { "<cmd>CBccbox<CR>", "Center aligned text" },
+            r = { "<cmd>CBcrbox<CR>", "Right aligned text" },
           },
           r = {
             name = "Right aligned box",
             l = { "<cmd>CBrlbox<CR>", "Left aligned text" },
-            c = { "<cmd>CBrcbox<CR>", "Left aligned text" },
-            r = { "<cmd>CBrrbox<CR>", "Left aligned text" },
+            c = { "<cmd>CBrcbox<CR>", "Center aligned text" },
+            r = { "<cmd>CBrrbox<CR>", "Right aligned text" },
           },
         },
       },
@@ -238,10 +236,13 @@ return {
         ["v"] = { "<cmd>ToggleTerm direction=vertical size=55 name=vertical<CR>", "Toggle Term Vertical" },
         ["h"] = { "<cmd>ToggleTerm direction=horizontal name=horizontal<CR>", "Toggle Term Horizontal" },
         ["c"] = { "<cmd>ToggleTerm direction=float<CR>", "Toggle Term Center" },
-        s = {
-          name = "Toggle Term Send",
-          l = { "<cmd>ToggleTermSendCurrentLine<CR>", "Send Current Line" },
-        },
+      },
+      -- S KEY
+      s = {
+        name = "Toggle Term Send",
+        l = { "<cmd>ToggleTermSendCurrentLine<CR>", "Send Current Line" },
+        b = { "Vgg<cmd>ToggleTermSendVisualLines<CR>''", "Send From Beginning to Current Line" },
+        e = { "VG<cmd>ToggleTermSendVisualLines<CR>", "Send From Current Line to End" },
       },
     }
     --  ┌────────────────────────────────────────────────────────────────────┐
