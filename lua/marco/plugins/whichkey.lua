@@ -244,6 +244,16 @@ return {
         b = { "Vgg<cmd>ToggleTermSendVisualLines<CR>''", "Send From Beginning to Current Line" },
         e = { "VG<cmd>ToggleTermSendVisualLines<CR>", "Send From Current Line to End" },
       },
+      -- J KEY
+      -- j = {
+      --   name = "Jupyter",
+      --   ["qt"] = { "<cmd>lua RunQtConsole()<CR>", "Run Qt Console" },
+      --   ["c"] = { "[[:<Plug>(IPy-Run)<CR>]]", "Run Current Cell" },
+        -- vim.keymap.set('n', '<leader>jqt', [[:lua RunQtConsole()<CR>]], { noremap = true, silent = true })
+        -- vim.keymap.set('n', '<leader>jk', [[:IPython --existing --no-window<CR>]], { noremap = true, silent = true })
+        -- vim.keymap.set('n', '<leader>jc', [[:<Plug>(IPy-RunCell)]], { noremap = true, silent = true })
+        -- vim.keymap.set('n', '<leader>ja', [[:<Plug>(IPy-RunAll)]], { noremap = true, silent = true })
+      -- }
     }
     --  ┌────────────────────────────────────────────────────────────────────┐
     --                               Visual Mode

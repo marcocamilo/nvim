@@ -2,6 +2,9 @@ return {
 	"nvim-lua/plenary.nvim",
 	"windwp/nvim-autopairs",
 
+  --Tmux and Window Navigation
+  "christoomey/vim-tmux-navigator",
+
 	--LF
 	"ptzz/lf.vim",
 	"voldikss/vim-floaterm",
