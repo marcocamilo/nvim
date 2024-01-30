@@ -202,6 +202,13 @@ return {
         },
         ["?"] = { "<cmd>Cheatsheet<CR>", "Cheatsheet" },
       },
+      -- MOLTEN (AND PYTHON STUFF)
+      r = {
+        name = "Run Code",
+        l = { "<cmd>MoltenEvaluateLine<CR>", "Run line (Molten)" },
+        -- c = { "<cmd>MoltenEvaluateLine<CR>", "Run line (Molten)" }
+        i = { "<cmd>MoltenInit<CR>", "Molten Init" },
+      },
       -- COMMENT BOX
       c = {
         b = {
@@ -270,6 +277,10 @@ return {
           name = "Toggle Term Send",
           l = { "<cmd>ToggleTermSendVisualLines<CR>", "Send Visual Lines" },
         },
+      },
+      r = {
+        name = "Run Code",
+        s = { "<cmd>MoltenEvaluateVisual<CR>", "Run visual selection (Molten)" },
       },
     }
     --  ┌────────────────────────────────────────────────────────────────────┐

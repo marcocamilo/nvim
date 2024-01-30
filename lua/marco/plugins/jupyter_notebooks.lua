@@ -43,7 +43,6 @@ return {
 			"anuvyklack/hydra.nvim",
 		},
 		opts = {
-      repl_provider = {"toggleterm"},
 			-- Code cell marker. Cells start with the marker and end either at the beginning
 			-- of the next cell or at the end of the file.
 			-- By default, uses language-specific double percent comments like `# %%`.
