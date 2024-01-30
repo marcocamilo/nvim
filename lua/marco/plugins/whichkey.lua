@@ -254,6 +254,11 @@ return {
         -- vim.keymap.set('n', '<leader>jc', [[:<Plug>(IPy-RunCell)]], { noremap = true, silent = true })
         -- vim.keymap.set('n', '<leader>ja', [[:<Plug>(IPy-RunAll)]], { noremap = true, silent = true })
       -- }
+      -- 4 KEY
+      ["4"] = {
+        name = "Quarto",
+        p = { "<cmd>QuartoPreview<CR>", "Quarto Preview" },
+      },
     }
     --  ┌────────────────────────────────────────────────────────────────────┐
     --                               Visual Mode

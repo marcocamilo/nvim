@@ -30,15 +30,19 @@ keymap("v", "c", '"_c', opts)
 -- Move
 keymap("n", "<S-k>", "<cmd>MoveLine(-1)<CR>", opts)
 keymap("n", "<S-j>", "<cmd>MoveLine(1)<CR>", opts)
-keymap("n", "<C-.>", "<cmd>MoveWord(1)<CR>", opts)
-keymap("n", "<C-,>", "<cmd>MoveWord-(1)<CR>", opts)
+-- keymap("n", "<C-.>", "<cmd>MoveWord(1)<CR>", opts)
+-- keymap("n", "<C-,>", "<cmd>MoveWord-(1)<CR>", opts)
 -- keymap("n", "<C-H>", "<cmd>MoveHChar(-1)<CR>", opts)
 -- keymap("n", "<C-L>", "<cmd>MoveHChar(1)<CR>", opts)
 
-keymap("v", "<S-j>", "<cmd>MoveBlock(1)<CR>", opts)
-keymap("v", "<S-k>", "<cmd>MoveBlock(-1)<CR>", opts)
-keymap("v", "<C-h>", "<cmd>MoveHBlock(-1)<CR>", opts)
-keymap("v", "<C-l>", "<cmd>MoveHBlock(1)<CR>", opts)
+-- keymap("v", "<S-j>", "<cmd>MoveBlock(1)<CR>", opts)
+-- keymap("v", "<S-k>", "<cmd>MoveBlock(-1)<CR>", opts)
+-- keymap("v", "<C-h>", "<cmd>MoveHBlock(-1)<CR>", opts)
+-- keymap("v", "<C-l>", "<cmd>MoveHBlock(1)<CR>", opts)
+
+-- Move to line limits (0 $ ^ g_)
+keymap( "n", "<S-n>", "^", opts )
+keymap( "n", "<S-m>", "g_", opts )
 
 -- Control Indentation
 keymap("n", "<", "<<", { desc = "Indent left" }, opts)
@@ -65,10 +69,10 @@ keymap("n", "<S-h>", "<cmd>bprevious<CR>", opts)
 keymap("n", "<S-q>", "<cmd>bd<CR>", opts) -- close buffers
 
 -- Window Navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+-- keymap("n", "<C-h>", "<C-w>h", opts)
+-- keymap("n", "<C-j>", "<C-w>j", opts)
+-- keymap("n", "<C-k>", "<C-w>k", opts)
+-- keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Window Management
 keymap("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically

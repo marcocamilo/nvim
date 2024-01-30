@@ -8,12 +8,15 @@ return {
 		"L3MON4D3/LuaSnip", -- snippet engine
 		"saadparwaiz1/cmp_luasnip", -- for autocompletion
 		"rafamadriz/friendly-snippets", -- useful snippets
+    "kawre/neotab.nvim",
 	},
 
 	config = function()
 		local cmp = require("cmp")
 
 		local luasnip = require("luasnip")
+
+    local neotab = require("neotab")
 
 		local lspkind = require("lspkind")
 
@@ -42,15 +45,15 @@ return {
 				["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
 				["<C-e>"] = cmp.mapping.abort(), -- close completion window
 				["<CR>"] = cmp.mapping.confirm({ select = false }),
-				["<Tab>"] = cmp.mapping(function(fallback)
-					if cmp.visible() then
-						cmp.select_next_item()
-					elseif has_words_before() then
-						cmp.complete()
-					else
-						fallback()
-					end
-				end, { "i", "s" }),
+				["<Tab>"] = cmp.mapping(function()
+          if cmp.visible() then
+            cmp.select_next_item()
+          elseif luasnip.jumpable(1) then
+            luasnip.jump(1)
+          else
+            neotab.tabout()
+          end
+        end),
 				["<S-Tab>"] = cmp.mapping(function(fallback)
 					if cmp.visible() then
 						cmp.select_prev_item()
@@ -88,7 +91,7 @@ return {
 				-- 		emoji = "[emoji]",
 				-- 	},
 				-- }),
-        -- Format fucntion
+        -- Format function
 				format = function(entry, vim_item)
 					local icons = {
 						otter = "[🦦]",
