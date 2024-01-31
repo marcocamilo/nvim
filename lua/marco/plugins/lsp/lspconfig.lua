@@ -133,7 +133,7 @@ return {
 		lspconfig["yamlls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			flags = lsp_flags,
+			filetypes = { "markdown", "quarto" },
 		})
 
 		-- configure html server
