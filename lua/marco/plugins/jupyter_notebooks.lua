@@ -80,7 +80,7 @@ return {
 		event = "VeryLazy",
 		config = function()
 			local nn = require("notebook-navigator")
-			nn.setup({ activate_hydra_keys = "<leader>jn" })
+			nn.setup({ activate_hydra_keys = "<leader>j" })
 		end,
 	},
 	{

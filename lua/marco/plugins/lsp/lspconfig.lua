@@ -86,16 +86,16 @@ return {
 			on_attach = on_attach,
 			flags = lsp_flags,
 		})
-		lspconfig["pylsp"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			flags = lsp_flags,
-		})
-		lspconfig["jedi_language_server"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			flags = lsp_flags,
-		})
+		-- lspconfig["pylsp"].setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- 	flags = lsp_flags,
+		-- })
+		-- lspconfig["jedi_language_server"].setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- 	flags = lsp_flags,
+		-- })
 
 		-- LaTeX
 		lspconfig["ltex"].setup({

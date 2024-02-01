@@ -38,7 +38,6 @@
   "mini.indentscope": { "branch": "main", "commit": "ca129b71edb672d30b8d7ec3138106db1b1f6a8b" },
   "mini.surround": { "branch": "main", "commit": "af8129efcabe95fc08a233e9f91569829bed031f" },
   "modicator.nvim": { "branch": "main", "commit": "81f0e320d63e2bb59219b9de8dc244e856412020" },
-  "molten-nvim": { "branch": "main", "commit": "21d766c2d60e5f6e03f507e7f3e382a2a927ad41" },
   "move.nvim": { "branch": "main", "commit": "cccbd4ea9049ca5f99f025ffaddb7392359c7d6a" },
   "neoscroll.nvim": { "branch": "master", "commit": "be4ebf855a52f71ca4338694a5696675d807eff9" },
   "neotab.nvim": { "branch": "master", "commit": "f831660ace2660b9f3da78c1b19650c60f179e02" },

@@ -203,12 +203,11 @@ return {
         ["?"] = { "<cmd>Cheatsheet<CR>", "Cheatsheet" },
       },
       -- MOLTEN (AND PYTHON STUFF)
-      r = {
-        name = "Run Code",
-        l = { "<cmd>MoltenEvaluateLine<CR>", "Run line (Molten)" },
-        -- c = { "<cmd>MoltenEvaluateLine<CR>", "Run line (Molten)" }
-        i = { "<cmd>MoltenInit<CR>", "Molten Init" },
-      },
+      -- r = {
+      --   name = "Molten Run Code",
+      --   l = { "<cmd>MoltenEvaluateLine<CR>", "Run line (Molten)" },
+      --   i = { "<cmd>MoltenInit<CR>", "Molten Init" },
+      -- },
       -- COMMENT BOX
       c = {
         b = {
@@ -246,10 +245,13 @@ return {
       },
       -- S KEY
       s = {
-        name = "Toggle Term Send",
-        l = { "<cmd>ToggleTermSendCurrentLine<CR>", "Send Current Line" },
-        b = { "Vgg<cmd>ToggleTermSendVisualLines<CR>''", "Send From Beginning to Current Line" },
-        e = { "VG<cmd>ToggleTermSendVisualLines<CR>", "Send From Current Line to End" },
+        -- name = "Toggle Term Send",
+        -- l = { "<cmd>ToggleTermSendCurrentLine<CR>", "Send Current Line" },
+        -- b = { "Vgg<cmd>ToggleTermSendVisualLines<CR>''", "Send From Beginning to Current Line" },
+        -- e = { "VG<cmd>ToggleTermSendVisualLines<CR>", "Send From Current Line to End" },
+
+        name = "Slime",
+        l = { "<cmd>SlimeSendCurrentLine<CR>", "Send current line"},
       },
       -- J KEY
       -- j = {
@@ -278,10 +280,11 @@ return {
           l = { "<cmd>ToggleTermSendVisualLines<CR>", "Send Visual Lines" },
         },
       },
-      r = {
-        name = "Run Code",
-        s = { "<cmd>MoltenEvaluateVisual<CR>", "Run visual selection (Molten)" },
-      },
+      -- r = {
+      --   name = "Run Code",
+      --   s = { "<cmd>MoltenEvaluateVisual<CR>", "Run visual selection (Molten)" },
+      -- },
+      s = { "<Plug>SlimeRegionSend<CR>", "Send region (slime)"}
     }
     --  ┌────────────────────────────────────────────────────────────────────┐
     --                                  SETUP
