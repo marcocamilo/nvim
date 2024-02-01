@@ -284,7 +284,7 @@ return {
       --   name = "Run Code",
       --   s = { "<cmd>MoltenEvaluateVisual<CR>", "Run visual selection (Molten)" },
       -- },
-      s = { "<Plug>SlimeRegionSend<CR>", "Send region (slime)"}
+      s = { "<Plug>SlimeRegionSend<CR><C-l>", "Send region (slime)"}
     }
     --  ┌────────────────────────────────────────────────────────────────────┐
     --                                  SETUP
