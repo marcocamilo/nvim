@@ -41,8 +41,8 @@ keymap("n", "<S-j>", "<cmd>MoveLine(1)<CR>", opts)
 -- keymap("v", "<C-l>", "<cmd>MoveHBlock(1)<CR>", opts)
 
 -- Move to line limits (0 $ ^ g_)
-keymap( "n", "<S-n>", "^", opts )
-keymap( "n", "<S-m>", "g_", opts )
+keymap( { "n", "v" }, "<S-n>", "^", opts )
+keymap( { "n", "v" }, "<S-m>", "g_", opts )
 
 -- Control Indentation
 keymap("n", "<", "<<", { desc = "Indent left" }, opts)

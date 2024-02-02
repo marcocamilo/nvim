@@ -205,9 +205,9 @@ return {
       -- REPL COMMANDS (SLIME)
       s = {
         name = "Slime",
-        l = { "<cmd>SlimeSendCurrentLine<CR>", "Send Current Line"},
-        b = { "<Cmd>normal! Vgg<Plug>SlimeRegionSend<CR><Cmd>TmuxNavigateRight<CR>", "Send From Beginning to Current Line" },
-        e = { "<Cmd>normal! VG<Plug>SlimeRegionSend<CR><Cmd>TmuxNavigateRight<CR>", "Send From Current Line to End" },
+        l = { "<cmd>SlimeSendCurrentLine<CR><Cmd>TmuxNavigatePrevious<CR>", "Send Current Line"},
+        b = { "<Cmd>normal! Vgg<Plug>SlimeRegionSend<CR><Cmd>TmuxNavigatePrevious<CR>", "Send From Beginning to Current Line" },
+        e = { "<Cmd>normal! VG<Plug>SlimeRegionSend<CR><Cmd>TmuxNavigatePrevious<CR>", "Send From Current Line to End" },
         --
         -- name = "Toggle Term Send",
         -- l = { "<cmd>ToggleTermSendCurrentLine<CR>", "Send Current Line" },
@@ -276,7 +276,7 @@ return {
           l = { "<cmd>ToggleTermSendVisualLines<CR>", "Send Visual Lines" },
         },
       },
-      s = { "<Plug>SlimeRegionSend<CR><C-l>", "Send region (slime)"}
+      s = { "<Plug>SlimeRegionSend<CR><Cmd>TmuxNavigatePrevious<CR>", "Send region (slime)"}
       -- r = {
       --   name = "Run Code",
       --   s = { "<cmd>MoltenEvaluateVisual<CR>", "Run visual selection (Molten)" },
