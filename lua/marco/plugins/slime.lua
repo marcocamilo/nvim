@@ -3,6 +3,9 @@ return {
   init = function()
     vim.g.slime_target = "tmux"
     vim.g.slime_cell_delimiter = "# %%"
+    vim.g["slime_default_config"] = {socket_name = "default", target_pane = "2"}
+    vim.g.slime_dont_ask_default = 1
+    vim.g.slime_no_mappings = 1
   end,
   -- init = function()
   --   vim.g.slime_target = "x11"

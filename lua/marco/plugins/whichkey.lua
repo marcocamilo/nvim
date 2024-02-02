@@ -202,12 +202,18 @@ return {
         },
         ["?"] = { "<cmd>Cheatsheet<CR>", "Cheatsheet" },
       },
-      -- MOLTEN (AND PYTHON STUFF)
-      -- r = {
-      --   name = "Molten Run Code",
-      --   l = { "<cmd>MoltenEvaluateLine<CR>", "Run line (Molten)" },
-      --   i = { "<cmd>MoltenInit<CR>", "Molten Init" },
-      -- },
+      -- REPL COMMANDS (SLIME)
+      s = {
+        name = "Slime",
+        l = { "<cmd>SlimeSendCurrentLine<CR>", "Send Current Line"},
+        b = { "<Cmd>normal! Vgg<Plug>SlimeRegionSend<CR><Cmd>TmuxNavigateRight<CR>", "Send From Beginning to Current Line" },
+        e = { "<Cmd>normal! VG<Plug>SlimeRegionSend<CR><Cmd>TmuxNavigateRight<CR>", "Send From Current Line to End" },
+        --
+        -- name = "Toggle Term Send",
+        -- l = { "<cmd>ToggleTermSendCurrentLine<CR>", "Send Current Line" },
+        -- b = { "Vgg<cmd>ToggleTermSendVisualLines<CR>''", "Send From Beginning to Current Line" },
+        -- e = { "VG<cmd>ToggleTermSendVisualLines<CR>", "Send From Current Line to End" },
+      },
       -- COMMENT BOX
       c = {
         b = {
@@ -243,17 +249,7 @@ return {
         ["h"] = { "<cmd>ToggleTerm direction=horizontal name=horizontal<CR>", "Toggle Term Horizontal" },
         ["c"] = { "<cmd>ToggleTerm direction=float<CR>", "Toggle Term Center" },
       },
-      -- S KEY
-      s = {
-        -- name = "Toggle Term Send",
-        -- l = { "<cmd>ToggleTermSendCurrentLine<CR>", "Send Current Line" },
-        -- b = { "Vgg<cmd>ToggleTermSendVisualLines<CR>''", "Send From Beginning to Current Line" },
-        -- e = { "VG<cmd>ToggleTermSendVisualLines<CR>", "Send From Current Line to End" },
-
-        name = "Slime",
-        l = { "<cmd>SlimeSendCurrentLine<CR>", "Send current line"},
-      },
-      -- J KEY
+      -- JUPYTER
       -- j = {
       --   name = "Jupyter",
       --   ["qt"] = { "<cmd>lua RunQtConsole()<CR>", "Run Qt Console" },
@@ -263,7 +259,7 @@ return {
         -- vim.keymap.set('n', '<leader>jc', [[:<Plug>(IPy-RunCell)]], { noremap = true, silent = true })
         -- vim.keymap.set('n', '<leader>ja', [[:<Plug>(IPy-RunAll)]], { noremap = true, silent = true })
       -- }
-      -- 4 KEY
+      -- QUARTO
       ["4"] = {
         name = "Quarto",
         p = { "<cmd>QuartoPreview<CR>", "Quarto Preview" },
@@ -280,11 +276,11 @@ return {
           l = { "<cmd>ToggleTermSendVisualLines<CR>", "Send Visual Lines" },
         },
       },
+      s = { "<Plug>SlimeRegionSend<CR><C-l>", "Send region (slime)"}
       -- r = {
       --   name = "Run Code",
       --   s = { "<cmd>MoltenEvaluateVisual<CR>", "Run visual selection (Molten)" },
       -- },
-      s = { "<Plug>SlimeRegionSend<CR><C-l>", "Send region (slime)"}
     }
     --  ┌────────────────────────────────────────────────────────────────────┐
     --                                  SETUP

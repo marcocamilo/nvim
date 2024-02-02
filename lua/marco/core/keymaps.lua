@@ -75,8 +75,8 @@ keymap("n", "<S-q>", "<cmd>bd<CR>", opts) -- close buffers
 -- keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Window Management
-keymap("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
-keymap("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontallysplit split 
+keymap("n", "<leader>s|", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
+keymap("n", "<leader>s-", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontallysplit split 
 keymap("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 keymap("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
