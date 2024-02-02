@@ -1,40 +1,7 @@
 return {
-	-- {
-	--   -- config from: https://web.archive.org/web/20200428030840/https://www.blog.gambitaccepted.com/2020/04/26/neovim-qtconsole-setup/
-	--   "bfredl/nvim-ipy",
-	--   config = function()
-	--       vim.g.ipy_celldef = '# %%' -- regex for cell start and end
-	--       vim.g.nvim_ipy_perform_mappings = 0
-	--
-	--       -- Function to run the QtConsole command
-	--       function RunQtConsole()
-	--           vim.fn.jobstart("jupyter qtconsole --JupyterWidget.include_other_output=True", {detach = true})
-	--       end
-	--
-	--       -- Key mapping for running QtConsole
-	--       -- vim.api.nvim_set_keymap('n', '<leader>jqt', [[:lua RunQtConsole()<CR>]], { noremap = true, silent = true })
-	--       vim.api.nvim_set_keymap('n', '<silent><c-s>', '<Plug>(IPy-Run)', { noremap = true, silent = true })
-	--       vim.api.nvim_set_keymap('n', '<leader>rc', '<Plug>(IPy-RunCell)', { noremap = true })
-	--   end,
-	-- },
+	-- old config from: https://web.archive.org/web/20200428030840/https://www.blog.gambitaccepted.com/2020/04/26/neovim-qtconsole-setup/
 	{
 		"GCBallesteros/NotebookNavigator.nvim",
-		keys = {
-			{
-				"]h",
-				function()
-					require("notebook-navigator").move_cell("d")
-				end,
-			},
-			{
-				"[h",
-				function()
-					require("notebook-navigator").move_cell("u")
-				end,
-			},
-			-- { "<leader>X", "<cmd>lua require('notebook-navigator').run_cell()<cr>" },
-			-- { "<leader>x", "<cmd>lua require('notebook-navigator').run_and_move()<cr>" },
-		},
 		dependencies = {
 			"echasnovski/mini.comment",
 			-- "hkupty/iron.nvim", -- repl provider
@@ -48,7 +15,7 @@ return {
 			-- By default, uses language-specific double percent comments like `# %%`.
 			-- This can be overridden for each language with this setting.
 			cell_markers = {
-				python = "# %%",
+				python = "\n# %%",
 			},
 
 			-- If not `nil` the keymap defined in the string will activate the hydra head
@@ -81,6 +48,17 @@ return {
 		config = function()
 			local nn = require("notebook-navigator")
 			nn.setup({ activate_hydra_keys = "<leader>j" })
+		end,
+	},
+	{
+		"echasnovski/mini.hipatterns",
+		event = "VeryLazy",
+		dependencies = { "GCBallesteros/NotebookNavigator.nvim" },
+		opts = function()
+			local nn = require("notebook-navigator")
+
+			local opts = { highlighters = { cells = nn.minihipatterns_spec } }
+			return opts
 		end,
 	},
 	{
