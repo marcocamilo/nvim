@@ -104,6 +104,14 @@ return {
 			style = "%H:%M:%S",
 		}
 
+		local function macro_recording()
+			local reg = vim.fn.reg_recording()
+			if reg == "" then
+				return ""
+			end
+			return "📷[" .. reg .. "]"
+		end
+
 		lualine.setup({
 			options = {
 				globalstatus = true,
@@ -116,7 +124,7 @@ return {
 			},
 			sections = {
 				-- Left
-				lualine_a = { "mode" },
+				lualine_a = { "mode", macro_recording },
 				lualine_b = { "filename" },
 				lualine_c = { diagnostics },
 				-- Right
@@ -130,6 +138,7 @@ return {
 				lualine_y = { getWords, "progress" },
 				lualine_z = { date },
 			},
+			extensions = { "nvim-tree" },
 		})
 	end,
 }

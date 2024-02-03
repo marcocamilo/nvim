@@ -41,8 +41,8 @@ keymap("n", "<S-j>", "<cmd>MoveLine(1)<CR>", opts)
 -- keymap("v", "<C-l>", "<cmd>MoveHBlock(1)<CR>", opts)
 
 -- Move to line limits (0 $ ^ g_)
-keymap( { "n", "v" }, "<S-n>", "^", opts )
-keymap( { "n", "v" }, "<S-m>", "g_", opts )
+keymap({ "n", "v" }, "<S-n>", "^", opts)
+keymap({ "n", "v" }, "<S-m>", "g_", opts)
 
 -- Control Indentation
 keymap("n", "<", "<<", { desc = "Indent left" }, opts)
@@ -55,8 +55,8 @@ keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.curren
 keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", opts)
 
 -- Sending Lines to Terminal (Toggle Term)
-keymap("n", "<C-Enter>", "<cmd>ToggleTermSendCurrentLine<CR>", {desc = "Send current line to ToggleTerm" }, opts)
-keymap("n", "<C-A-b>", "<C-v>gg<cmd>ToggleTermSendVisualLines<CR><esc>''", {desc = "Run from document beginning to current line (ToggleTerm)" }, opts)
+-- keymap("n", "<C-Enter>", "<cmd>ToggleTermSendCurrentLine<CR>", {desc = "Send current line to ToggleTerm" }, opts)
+-- keymap("n", "<C-A-b>", "<C-v>gg<cmd>ToggleTermSendVisualLines<CR><esc>''", {desc = "Run from document beginning to current line (ToggleTerm)" }, opts)
 -- keymap("n", "<C-A-e>", "<C-v>G<cmd>ToggleTermSendVisualLines<CR><esc>''", {desc = "Run from current line to document end (ToggleTerm)" }, opts)
 -- keymap("n", "<C-A-r>", "gg<C-v>G<cmd>ToggleTermSendVisualLines<CR><esc>", {desc = "Run entire document (ToggleTerm)" }, opts)
 
@@ -76,7 +76,7 @@ keymap("n", "<S-q>", "<cmd>bd<CR>", opts) -- close buffers
 
 -- Window Management
 keymap("n", "<leader>s|", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
-keymap("n", "<leader>s-", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontallysplit split 
+keymap("n", "<leader>s-", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontallysplit split
 keymap("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 keymap("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
@@ -125,8 +125,7 @@ keymap("i", "jk", "<ESC>", opts)
 -- Visual --------------------------------------
 ------------------------------------------------
 -- Format Markdown Tables
-keymap("v", "<leader>mt", "!pandoc -t markdown-simple_tables<CR>",
-  { desc = 'Align Mardown Table Using Pandoc' }, opts)
+keymap("v", "<leader>mt", "!pandoc -t markdown-simple_tables<CR>", { desc = "Align Mardown Table Using Pandoc" }, opts)
 
 ------------------------------------------------
 -- SNIPPETS ------------------------------------
@@ -140,14 +139,7 @@ keymap("n", "<leader>xt", "o```{=tex}<cr>```<esc>O", { desc = "TeX code chunk" }
 ------------------------------------------------
 -- send code with ctrl+Enter
 -- just like in e.g. RStudio
--- needs kitty (or other terminal) config:
--- map shift+enter send_text all \x1b[13;2u
--- map ctrl+enter send_text all \x1b[13;5u
-keymap("n", "sc", "<Plug>SlimeSendCell", { desc = "Send cell" }, opts)
--- nmap("<s-cr>", "<Plug>SlimeSendCell")
--- imap("<c-cr>", "<esc><Plug>SlimeSendCell<cr>i")
--- imap("<s-cr>", "<esc><Plug>SlimeSendCell<cr>i")
---
--- -- send code with Enter and leader Enter
--- vmap("<cr>", "<Plug>SlimeRegionSend")
--- nmap("<leader><cr>", "<Plug>SlimeSendCell")
+-- needs iTerm (or other terminal) config:
+-- keyboard shortcut: Ctrl + Enter → Send Escape Sequence: "[13;5u"
+keymap("n", "<c-cr>", "<Plug>SlimeSendCell<cmd>TmuxNavigatePrevious<cr>", opts)
+keymap("v", "<cr>", "<Plug>SlimeRegionSend<cmd>TmuxNavigatePrevious<cr>", opts)
