@@ -134,3 +134,20 @@ keymap("v", "<leader>mt", "!pandoc -t markdown-simple_tables<CR>",
 keymap("n", "<leader>xp", "o```{python}<cr>```<esc>O", { desc = "Python code chunk" }, opts)
 keymap("n", "<leader>xr", "o```{r}<cr>```<esc>O", { desc = "R code chunk" }, opts)
 keymap("n", "<leader>xt", "o```{=tex}<cr>```<esc>O", { desc = "TeX code chunk" }, opts)
+
+------------------------------------------------
+-- SLIME ---------------------------------------
+------------------------------------------------
+-- send code with ctrl+Enter
+-- just like in e.g. RStudio
+-- needs kitty (or other terminal) config:
+-- map shift+enter send_text all \x1b[13;2u
+-- map ctrl+enter send_text all \x1b[13;5u
+keymap("n", "sc", "<Plug>SlimeSendCell", { desc = "Send cell" }, opts)
+-- nmap("<s-cr>", "<Plug>SlimeSendCell")
+-- imap("<c-cr>", "<esc><Plug>SlimeSendCell<cr>i")
+-- imap("<s-cr>", "<esc><Plug>SlimeSendCell<cr>i")
+--
+-- -- send code with Enter and leader Enter
+-- vmap("<cr>", "<Plug>SlimeRegionSend")
+-- nmap("<leader><cr>", "<Plug>SlimeSendCell")
