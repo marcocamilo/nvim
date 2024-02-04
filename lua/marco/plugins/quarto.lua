@@ -235,6 +235,17 @@ return {
 			--   capabilities = capabilities,
 			--   filetypes = { "markdown", "tex", "quarto" },
 			-- }
+			-- LaTeX
+			lspconfig["ltex"].setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+				filetypes = { "markdown", "tex", "quarto" },
+			})
+			lspconfig["texlab"].setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+				filetypes = { "tex", "plaintex", "bib", "rmd", "quarto" },
+			})
 
 			lspconfig.r_language_server.setup({
 				on_attach = on_attach,
@@ -499,35 +510,37 @@ return {
 			{ "L3MON4D3/LuaSnip" },
 			{ "rafamadriz/friendly-snippets" },
 			{ "onsails/lspkind-nvim" },
+			{ "kawre/neotab.nvim" },
 
 			-- optional
 			-- more things to try:
-			{
-				"zbirenbaum/copilot.lua",
-				config = function()
-					require("copilot").setup({
-						suggestion = {
-							enabled = true,
-							auto_trigger = true,
-							debounce = 75,
-							keymap = {
-								accept = "<c-a>",
-								accept_word = false,
-								accept_line = false,
-								next = "<M-]>",
-								prev = "<M-[>",
-								dismiss = "<C-]>",
-							},
-						},
-						panel = { enabled = false },
-					})
-				end,
-			},
+			-- {
+			-- 	"zbirenbaum/copilot.lua",
+			-- 	config = function()
+			-- 		require("copilot").setup({
+			-- 			suggestion = {
+			-- 				enabled = true,
+			-- 				auto_trigger = true,
+			-- 				debounce = 75,
+			-- 				keymap = {
+			-- 					accept = "<c-a>",
+			-- 					accept_word = false,
+			-- 					accept_line = false,
+			-- 					next = "<M-]>",
+			-- 					prev = "<M-[>",
+			-- 					dismiss = "<C-]>",
+			-- 				},
+			-- 			},
+			-- 			panel = { enabled = false },
+			-- 		})
+			-- 	end,
+			-- },
 		},
 		config = function()
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
 			local lspkind = require("lspkind")
+			local neotab = require("neotab")
 			lspkind.init()
 
 			local has_words_before = function()
@@ -537,38 +550,29 @@ return {
 			end
 
 			cmp.setup({
+				completion = {
+					completeopt = "menu,menuone,preview,noselect",
+				},
 				snippet = {
 					expand = function(args)
 						luasnip.lsp_expand(args.body)
 					end,
 				},
 				mapping = {
-					["<C-f>"] = cmp.mapping.scroll_docs(-4),
+					["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
+					["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
+					["<C-u>"] = cmp.mapping.scroll_docs(-4),
 					["<C-d>"] = cmp.mapping.scroll_docs(4),
-					["<C-n>"] = cmp.mapping(function(fallback)
-						if luasnip.expand_or_jumpable() then
-							luasnip.expand_or_jump()
-							fallback()
-						end
-					end, { "i", "s" }),
-					["<C-p>"] = cmp.mapping(function(fallback)
-						if luasnip.jumpable(-1) then
-							luasnip.jump(-1)
-						else
-							fallback()
-						end
-					end, { "i", "s" }),
 					["<C-e>"] = cmp.mapping.abort(),
-					["<CR>"] = cmp.mapping.confirm({
-						select = true,
-					}),
+					["<CR>"] = cmp.mapping.confirm({ select = true }),
+
 					["<Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_next_item()
-						elseif has_words_before() then
-							cmp.complete()
+						elseif luasnip.jumpable(1) then
+							luasnip.jump(1)
 						else
-							fallback()
+							neotab.tabout()
 						end
 					end, { "i", "s" }),
 					["<S-Tab>"] = cmp.mapping(function(fallback)
@@ -581,9 +585,67 @@ return {
 				},
 				autocomplete = false,
 				formatting = {
-					format = lspkind.cmp_format({
-						with_text = true,
-						menu = {
+					-- CONFIG 1: SOURCE NAME
+					-- format = function(entry, vim_item)
+					-- 	local icons = {
+					-- 		otter = "[🦦]",
+					-- 		copilot = "[]",
+					-- 		luasnip = "[snip]",
+					-- 		nvim_lsp = "[LSP]",
+					-- 		buffer = "[buf]",
+					-- 		path = "[path]",
+					-- 		spell = "[spell]",
+					-- 		pandoc_references = "[ref]",
+					-- 		tags = "[tag]",
+					-- 		treesitter = "[TS]",
+					-- 		calc = "[calc]",
+					-- 		latex_symbols = "[tex]",
+					-- 		emoji = "[emoji]",
+					-- 	}
+					-- 	if entry.source.name == "nvim_lsp" then
+					-- 		vim_item.menu =
+					-- 			string.format("%s %s", icons[entry.source.name], entry.source.source.client.name)
+					-- 	else
+					-- 		vim_item.menu = icons[entry.source.name]
+					-- 	end
+					-- 	return vim_item
+					-- end,
+					-- CONFIG 2: ORIGINAL
+					-- format = lspkind.cmp_format({
+					--        mode = "text_symbol",
+					-- 	menu = {
+					-- 		otter = "[🦦]",
+					-- 		nvim_lsp = "[LSP]",
+					-- 		luasnip = "[snip]",
+					-- 		buffer = "[buf]",
+					-- 		path = "[path]",
+					-- 		spell = "[spell]",
+					-- 		pandoc_references = "[ref]",
+					-- 		tags = "[tag]",
+					-- 		treesitter = "[TS]",
+					-- 		calc = "[calc]",
+					-- 		latex_symbols = "[tex]",
+					-- 		emoji = "[emoji]",
+					-- 	},
+					-- }),
+					-- CONFIG 3: devcons
+					-- format = function(entry, vim_item)
+					--   if vim.tbl_contains({ 'path' }, entry.source.name) then
+					--     local icon, hl_group = require('nvim-web-devicons').get_icon(entry:get_completion_item().label)
+					--     if icon then
+					--       vim_item.kind = icon
+					--       vim_item.kind_hl_group = hl_group
+					--       return vim_item
+					--     end
+					--   end
+					--   return require('lspkind').cmp_format({ with_text = false })(entry, vim_item)
+					-- end
+					-- CONFIG 5: custom
+					fields = { "abbr", "kind", "menu" },
+					format = function(entry, vim_item)
+						local menu
+						local kind
+						local icons = {
 							otter = "[🦦]",
 							nvim_lsp = "[LSP]",
 							luasnip = "[snip]",
@@ -596,31 +658,47 @@ return {
 							calc = "[calc]",
 							latex_symbols = "[tex]",
 							emoji = "[emoji]",
-						},
-					}),
+						}
+            
+            if require("lspkind").symbol_map[vim_item.kind] and vim_item.kind then
+              kind = require("lspkind").symbol_map[vim_item.kind] .. " " .. vim_item.kind
+            else
+              kind = vim_item.kind
+            end
+
+						if entry.source.name == "nvim_lsp" and entry.source.source.client.name then
+							menu = icons[entry.source.name] .. " " .. entry.source.source.client.name
+						else
+							menu = icons[entry.source.name] or entry.source.name
+						end
+
+						vim_item.kind = kind
+						vim_item.menu = menu
+						return vim_item
+					end,
 				},
 				sources = {
 					{ name = "otter" }, -- for code chunks in quarto
 					{ name = "path" },
 					{ name = "nvim_lsp" },
 					{ name = "nvim_lsp_signature_help" },
-					{ name = "luasnip", keyword_length = 3, max_item_count = 3 },
+					{ name = "luasnip" },
 					{ name = "pandoc_references" },
-					{ name = "buffer", keyword_length = 5, max_item_count = 3 },
+					{ name = "buffer" },
 					{ name = "spell" },
-					{ name = "treesitter", keyword_length = 5, max_item_count = 3 },
+					{ name = "treesitter" },
 					{ name = "calc" },
 					{ name = "latex_symbols" },
 					{ name = "emoji" },
 				},
-				view = {
-					entries = "native",
-				},
-				window = {
-					documentation = {
-						border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│#[[PN: permanent note]]" },
-					},
-				},
+				-- view = {
+				-- 	entries = "native",
+				-- },
+				-- window = {
+				-- 	documentation = {
+				-- 		border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+				-- 	},
+				-- },
 			})
 
 			-- for friendly snippets
@@ -665,7 +743,7 @@ return {
 			-- end
 
 			vim.b.slime_cell_delimiter = "# %%"
-      vim.g.slime_no_mappings = 1
+			vim.g.slime_no_mappings = 1
 
 			-- -- slime, neovvim terminal
 			-- vim.g.slime_target = "neovim"
@@ -675,7 +753,7 @@ return {
 			vim.g.slime_target = "tmux"
 			vim.g.slime_bracketed_paste = 1
 			vim.g.slime_default_config = { socket_name = "default", target_pane = "2" }
-      vim.g.slime_dont_ask_default = 1
+			vim.g.slime_dont_ask_default = 1
 
 			-- local function toggle_slime_tmux_nvim()
 			-- 	if vim.g.slime_target == "tmux" then
