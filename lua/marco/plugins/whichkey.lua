@@ -18,7 +18,7 @@ return {
           suggestions = 20, -- how many suggestions should be shown in the list?
         },
         presets = {
-          operators = true, -- adds help for operators like d, y, ...
+          operators = false, -- adds help for operators like d, y, ...
           motions = true, -- adds help for motions
           text_objects = true, -- help for text objects triggered after entering an operator
           windows = true, -- default bindings on <c-w>
@@ -85,6 +85,7 @@ return {
       triggers_blacklist = {
         -- list of mode / prefixes that should never be hooked by WhichKey
         -- this is mostly relevant for keymaps that start with a native binding
+        n = { "v" },
         i = { "j", "k" },
         v = { "j", "k" },
       },
@@ -190,7 +191,7 @@ return {
         c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
         h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
         M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-        r = { "<cmd>SearchBoxReplace<cr>", "Search and Replace" },
+        r = { "<cmd>SearchBoxReplace confirm=native<cr>", "Search and Replace" },
         R = { "<cmd>Telescope registers<cr>", "Registers" },
         k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
         C = { "<cmd>Telescope commands<cr>", "Commands" },
