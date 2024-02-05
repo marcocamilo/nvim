@@ -1,3 +1,6 @@
+--  ───────────────────────────────────────────────────────────────────
+--   BASE SETTING                                                      
+--  ───────────────────────────────────────────────────────────────────
 -- Shorten function name
 local keymap = vim.keymap.set
 -- Silent keymap option
@@ -7,9 +10,9 @@ local opts = { silent = true }
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
-------------------------------------------------
--- EDITING KEYS --------------------------------
-------------------------------------------------
+--  ───────────────────────────────────────────────────────────────────
+--   EDITING KEYS                                                      
+--  ───────────────────────────────────────────────────────────────────
 -- Better paste
 keymap("v", "p", '"_dP', opts)
 
@@ -54,15 +57,9 @@ keymap("v", ">", ">gv", { desc = "Indent right" }, opts)
 keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
 keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", opts)
 
--- Sending Lines to Terminal (Toggle Term)
--- keymap("n", "<C-Enter>", "<cmd>ToggleTermSendCurrentLine<CR>", {desc = "Send current line to ToggleTerm" }, opts)
--- keymap("n", "<C-A-b>", "<C-v>gg<cmd>ToggleTermSendVisualLines<CR><esc>''", {desc = "Run from document beginning to current line (ToggleTerm)" }, opts)
--- keymap("n", "<C-A-e>", "<C-v>G<cmd>ToggleTermSendVisualLines<CR><esc>''", {desc = "Run from current line to document end (ToggleTerm)" }, opts)
--- keymap("n", "<C-A-r>", "gg<C-v>G<cmd>ToggleTermSendVisualLines<CR><esc>", {desc = "Run entire document (ToggleTerm)" }, opts)
-
-------------------------------------------------
--- BUFFERS, WINDOWS AND TABS -------------------
-------------------------------------------------
+--  ───────────────────────────────────────────────────────────────────
+--   BUFFERS, WINDOWS AND TABS                                         
+--  ───────────────────────────────────────────────────────────────────
 -- Buffer Navigation
 keymap("n", "<S-l>", "<cmd>bnext<CR>", opts)
 keymap("n", "<S-h>", "<cmd>bprevious<CR>", opts)
@@ -87,9 +84,9 @@ keymap("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) --
 -- keymap("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 -- keymap("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
-------------------------------------------------
--- MODES ---------------------------------------
-------------------------------------------------
+--  ───────────────────────────────────────────────────────────────────
+--   MODES                                                             
+--  ───────────────────────────────────────────────────────────────────
 --   normal_mode = "n",
 --   insert_mode = "i",
 --   visual_mode = "v",
@@ -97,9 +94,9 @@ keymap("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) --
 --   term_mode = "t",
 --   command_mode = "c",
 
-------------------------------------------------
--- NORMAL --------------------------------------
-------------------------------------------------
+--  ───────────────────────────────────────────────────────────────────
+--   Normal                                                            
+--  ───────────────────────────────────────────────────────────────────
 -- Write
 keymap("n", "<leader>w", "<cmd>w<CR>", { desc = "Write" }, opts)
 
@@ -115,28 +112,28 @@ keymap("n", "<leader>q", "<cmd>q<CR>", { desc = "Quit" }, opts)
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", { desc = "No highlights" }, opts)
 
-------------------------------------------------
--- Insert --------------------------------------
-------------------------------------------------
+--  ───────────────────────────────────────────────────────────────────
+--   Insert                                                            
+--  ───────────────────────────────────────────────────────────────────
 -- Quickly exit insert mode
 keymap("i", "jk", "<ESC>", opts)
 
-------------------------------------------------
--- Visual --------------------------------------
-------------------------------------------------
+--  ───────────────────────────────────────────────────────────────────
+--   Visual                                                            
+--  ───────────────────────────────────────────────────────────────────
 -- Format Markdown Tables
 keymap("v", "<leader>mt", "!pandoc -t markdown-simple_tables<CR>", { desc = "Align Mardown Table Using Pandoc" }, opts)
 
-------------------------------------------------
--- SNIPPETS ------------------------------------
-------------------------------------------------
+--  ───────────────────────────────────────────────────────────────────
+--   SNIPPETS                                                          
+--  ───────────────────────────────────────────────────────────────────
 keymap("n", "<leader>xp", "o```{python}<cr>```<esc>O", { desc = "Python code chunk" }, opts)
 keymap("n", "<leader>xr", "o```{r}<cr>```<esc>O", { desc = "R code chunk" }, opts)
 keymap("n", "<leader>xt", "o```{=tex}<cr>```<esc>O", { desc = "TeX code chunk" }, opts)
 
-------------------------------------------------
--- SLIME ---------------------------------------
-------------------------------------------------
+--  ───────────────────────────────────────────────────────────────────
+--   SLIME                                                             
+--  ───────────────────────────────────────────────────────────────────
 -- send code with ctrl+Enter
 -- just like in e.g. RStudio
 -- needs iTerm (or other terminal) config:
