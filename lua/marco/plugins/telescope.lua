@@ -3,9 +3,11 @@ return {
 	-- commit = vim.fn.has("nvim-0.9.0") == 0 and "057ee0f8783" or nil,
 	branch = "0.1.x",
 	dependencies = {
-		"nvim-lua/plenary.nvim",
+		{ "nvim-lua/plenary.nvim" },
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-		"nvim-tree/nvim-web-devicons",
+    { "nvim-telescope/telescope-ui-select.nvim" },
+		{ "nvim-tree/nvim-web-devicons" },
+  { "nvim-telescope/telescope-file-browser.nvim" },
 	},
 	config = function()
 		local telescope = require("telescope")
