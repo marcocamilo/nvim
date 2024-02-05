@@ -264,7 +264,10 @@ return {
       -- QUARTO
       ["4"] = {
         name = "Quarto",
+        a = { "<cmd>QuartoActivate<CR>", "Quarto Activate"},
         p = { "<cmd>QuartoPreview<CR>", "Quarto Preview" },
+        ["cp"] = { "<cmd>QuartoClosePreview<CR>", "Quarto Close Preview" },
+        h = { "<cmd>QuartoHelp ", "Quarto Help" },
       },
     }
     --  ┌────────────────────────────────────────────────────────────────────┐
