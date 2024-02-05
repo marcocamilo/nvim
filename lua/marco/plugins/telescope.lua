@@ -3,9 +3,11 @@ return {
 	-- commit = vim.fn.has("nvim-0.9.0") == 0 and "057ee0f8783" or nil,
 	branch = "0.1.x",
 	dependencies = {
-		"nvim-lua/plenary.nvim",
+		{ "nvim-lua/plenary.nvim" },
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-		"nvim-tree/nvim-web-devicons",
+    { "nvim-telescope/telescope-ui-select.nvim" },
+		{ "nvim-tree/nvim-web-devicons" },
+  { "nvim-telescope/telescope-file-browser.nvim" },
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -14,11 +16,19 @@ return {
 		telescope.setup({
 			defaults = {
 				path_display = { "truncate " },
+        file_ignore_patterns = {
+          "node_modules",
+          "%_files/*.html",
+          "%_cache",
+          ".git/",
+          "site_libs",
+          ".venv",
+        },
 				mappings = {
 					i = {
 						["<C-k>"] = actions.move_selection_previous, -- move to prev result
 						["<C-j>"] = actions.move_selection_next, -- move to next result
-						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            ["<esc>"] = actions.close, -- close
 					},
 				},
 			},
@@ -28,6 +38,21 @@ return {
 				},
         find_files = {
           theme = "dropdown",
+          hidden = false,
+          find_command = {
+            "rg",
+            "--files",
+            "--hidden",
+            "--glob",
+            "!.git/*",
+            "--glob",
+            "!**/.Rproj.user/*",
+            "--glob",
+            "!_site/*",
+            "--glob",
+            "!docs/**/*.html",
+            "-L",
+          },
         },
         live_grep = {
           theme = "dropdown",

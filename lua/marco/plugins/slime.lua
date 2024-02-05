@@ -1,23 +1,31 @@
-return {
+return 	{
   "jpalardy/vim-slime",
   init = function()
-    vim.g.slime_target = "tmux"
-    vim.g.slime_cell_delimiter = "# %%"
-    vim.g["slime_default_config"] = {socket_name = "default", target_pane = "2"}
-    vim.g.slime_dont_ask_default = 1
+    vim.b["quarto_is_" .. "python" .. "_chunk"] = false
+    Quarto_is_in_python_chunk = function()
+      require("otter.tools.functions").is_otter_language_context("python")
+    end
+
+    vim.cmd([[
+    let g:slime_dispatch_ipython_pause = 100
+    function SlimeOverride_EscapeText_quarto(text)
+    call v:lua.Quarto_is_in_python_chunk()
+    if exists('g:slime_python_ipython') && len(split(a:text,"\n")) > 1 && b:quarto_is_python_chunk
+    return ["%cpaste -q\n", g:slime_dispatch_ipython_pause, a:text, "--", "\n"]
+    else
+    return a:text
+    end
+    endfunction
+    ]])
+
+    vim.b.slime_cell_delimiter = "# %%"
     vim.g.slime_no_mappings = 1
+
+    -- slime, tmux
+    vim.g.slime_target = "tmux"
+    vim.g.slime_bracketed_paste = 1
+    vim.g.slime_default_config = { socket_name = "default", target_pane = "2" }
+    vim.g.slime_dont_ask_default = 1
+
   end,
-  -- init = function()
-  --   vim.g.slime_target = "x11"
-  --   vim.g.slime_x11_lf_to_cr = 1
-  -- end,
-  -- config = function()
-  --   function SlimeOverride_EscapeText_python(text)
-  --     local escaped_text = _EscapeText_python(text)
-  --     if vim.g.slime_target:find("x11") and vim.g.slime_x11_lf_to_cr then
-  --       return escaped_text:gsub('\n', '\r')
-  --     end
-  --     return escaped_text
-  --   end
-  -- end
 }

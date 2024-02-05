@@ -8,10 +8,10 @@ return {
       bottom = "─",
       left = "",
       right = "",
-      top_left = "┌",
-      top_right = "┐",
-      bottom_left = "└",
-      bottom_right = "┘",
+      top_left = "", -- ┌
+      top_right = "", -- ┐
+      bottom_left = "", -- └
+      bottom_right = "", -- ┘
     },
     line_width = 70, -- width of the lines
     line = { -- symbols used to draw a line
