@@ -28,8 +28,8 @@ keymap("n", "c", '"_c', opts)
 keymap("v", "c", '"_c', opts)
 
 -- Move
-keymap("n", "<S-k>", "<cmd>MoveLine(-1)<CR>", opts)
-keymap("n", "<S-j>", "<cmd>MoveLine(1)<CR>", opts)
+-- keymap("n", "<S-k>", "<cmd>MoveLine(-1)<CR>", opts)
+-- keymap("n", "<S-j>", "<cmd>MoveLine(1)<CR>", opts)
 -- keymap("n", "<C-.>", "<cmd>MoveWord(1)<CR>", opts)
 -- keymap("n", "<C-,>", "<cmd>MoveWord-(1)<CR>", opts)
 -- keymap("n", "<C-H>", "<cmd>MoveHChar(-1)<CR>", opts)
@@ -41,8 +41,8 @@ keymap("n", "<S-j>", "<cmd>MoveLine(1)<CR>", opts)
 -- keymap("v", "<C-l>", "<cmd>MoveHBlock(1)<CR>", opts)
 
 -- Move to line limits (0 $ ^ g_)
-keymap({ "n", "v" }, "<S-n>", "^", opts)
-keymap({ "n", "v" }, "<S-m>", "g_", opts)
+-- keymap({ "n", "v" }, "gh", "^", opts)
+-- keymap({ "n", "v" }, "gl", "g_", opts)
 
 -- Control Indentation
 keymap("n", "<", "<<", { desc = "Indent left" }, opts)
