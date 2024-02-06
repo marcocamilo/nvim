@@ -165,7 +165,7 @@ return {
       m = {
         name = "Markdown",
         v = { "<cmd>MarkdownPreviewToggle<CR>", "Markdown Preview" },
-        h = { "cmd>MarkdownHeaders<CR>", "Markdown Headers" },
+        h = { "<cmd>MarkdownHeaders<CR>", "Markdown Headers" },
       },
       -- LSP
       l = {
