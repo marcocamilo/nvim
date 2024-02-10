@@ -3,9 +3,16 @@ return {
   tag = nil,
   branch = "master",
   build = ":TSUpdate",
+  event = { "BufReadPre", "BufNewFile" },
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+  },
   config = function()
-    require("nvim-treesitter.configs").setup({
+    local treesitter = require("nvim-treesitter.configs")
+    treesitter.setup({
       ensure_installed = {
+        "json",
+        "javascript",
         "r",
         "python",
         "markdown",
@@ -20,7 +27,8 @@ return {
         "latex",
         "html",
         "css",
-        "dot"
+        "dot",
+        "gitignore"
       },
       highlight = {
         enable = true,
@@ -32,49 +40,14 @@ return {
         -- quarto-vim / vim-pandoc sets the wrong comment character
         -- for some sections where there is `$` math.
       },
-      indent = {
-        enable = true,
-      },
+      indent = { enable = true },
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = "gnn",
-          node_incremental = "grn",
-          scope_incremental = "grc",
-          node_decremental = "grm",
-        },
-      },
-      textobjects = {
-        select = {
-          enable = true,
-          lookahead = true,
-          keymaps = {
-            -- You can use the capture groups defined in textobjects.scm
-            ["af"] = "@function.outer",
-            ["if"] = "@function.inner",
-            ["ac"] = "@class.outer",
-            ["ic"] = "@class.inner",
-          },
-        },
-        move = {
-          enable = true,
-          set_jumps = true, -- whether to set jumps in the jumplist
-          goto_next_start = {
-            ["]m"] = "@function.outer",
-            ["]]"] = "@class.inner",
-          },
-          goto_next_end = {
-            ["]M"] = "@function.outer",
-            ["]["] = "@class.outer",
-          },
-          goto_previous_start = {
-            ["[m"] = "@function.outer",
-            ["[["] = "@class.inner",
-          },
-          goto_previous_end = {
-            ["[M"] = "@function.outer",
-            ["[]"] = "@class.outer",
-          },
+          init_selection = "<C-space>",
+          node_incremental = "<C-space>",
+          scope_incremental = false,
+          node_decremental = "<bs>",
         },
       },
     })
