@@ -151,6 +151,7 @@ return 	{
           local menu
           local kind
           local icons = {
+            Copilot = "",
             otter = "[🦦]",
             nvim_lsp = "[LSP]",
             luasnip = "[snip]",
@@ -183,6 +184,7 @@ return 	{
         end,
       },
       sources = {
+        { name = "copilot" },
         { name = "otter" }, -- for code chunks in quarto
         { name = "path" },
         { name = "nvim_lsp" },
