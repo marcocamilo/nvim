@@ -245,7 +245,7 @@ return {
         c = { "<Plug>(IPy-RunCell)", "Run Cell" },
         l = { "<Plug>(IPy-Run)", "Run Line" },
 			},
-			-- COMMENT BOX
+			-- C KEY
 			c = {
 				b = {
 					name = "Comment Box",
@@ -268,6 +268,13 @@ return {
 						r = { "<cmd>CBrrbox<CR>", "Right aligned text" },
 					},
 				},
+        -- c = {
+        --   name = "Copilot",
+        --   p = { "<cmd>Copilot panel<CR>", "Copilot panel" },
+        --   s = { "<cmd>Copilot snippet<CR>", "Copilot status" },
+        --   e = { "<cmd>Copilot enable<CR>", "Copilot enable" },
+        --   d = { "<cmd>Copilot disable<CR>", "Copilot disable" },
+        -- }
 			},
 			-- T KEY
 			t = {
