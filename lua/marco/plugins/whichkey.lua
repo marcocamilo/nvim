@@ -274,7 +274,11 @@ return {
 				x = {
 					name = "VimTeX",
 					["c"] = { "<cmd>VimtexCompile<CR>", "VimTeX Compile" },
+					["q"] = { "<cmd>VimtexStop<CR>", "VimTeX Stop" },
 					["v"] = { "<cmd>VimtexView<CR>", "VimTeX View" },
+					["l"] = { "<cmd>VimtexLog<CR>", "VimTeX Log" },
+					["i"] = { "<cmd>VimtexInfo<CR>", "VimTeX Info" },
+					["e"] = { "<cmd>VimtexErrors<CR>", "VimTeX Errors" },
 				},
 				["v"] = { "<cmd>ToggleTerm direction=vertical size=55 name=vertical<CR>", "Toggle Term Vertical" },
 				["h"] = { "<cmd>ToggleTerm direction=horizontal name=horizontal<CR>", "Toggle Term Horizontal" },
