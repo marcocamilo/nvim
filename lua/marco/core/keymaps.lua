@@ -144,16 +144,16 @@ keymap("v", "<cr>", "<Plug>SlimeRegionSend<cmd>TmuxNavigatePrevious<cr>", opts)
 --  ───────────────────────────────────────────────────────────────────
 --   IPy                                                               
 --  ───────────────────────────────────────────────────────────────────
-local function initiate_ipy()
-  vim.cmd("Lazy load nvim-ipy")
-  vim.defer_fn(function()
-      vim.cmd("RunQtConsole")
-      vim.defer_fn(function()
-          vim.cmd("IPython --existing --no-window")
-      end, 6000)
-  end, 3000)
-end
-
-keymap("n", "<leader>rip", initiate_ipy, { desc = "Initiate IPy" }, opts)
-keymap({"n"}, "<c-cr>", "<Plug>(IPy-RunCell)", { desc = "IPython Run Cell" }, opts)
-keymap({"n", "v"}, "<leader><cr>", "<Plug>(IPy-Run)", { desc = "IPython Run Line or Selection" }, opts)
+-- local function initiate_ipy()
+--   vim.cmd("Lazy load nvim-ipy")
+--   vim.defer_fn(function()
+--       vim.cmd("RunQtConsole")
+--       vim.defer_fn(function()
+--           vim.cmd("IPython --existing --no-window")
+--       end, 6000)
+--   end, 3000)
+-- end
+--
+-- keymap("n", "<leader>rip", initiate_ipy, { desc = "Initiate IPy" }, opts)
+-- keymap({"n"}, "<c-cr>", "<Plug>(IPy-RunCell)", { desc = "IPython Run Cell" }, opts)
+-- keymap({"n", "v"}, "<leader><cr>", "<Plug>(IPy-Run)", { desc = "IPython Run Line or Selection" }, opts)

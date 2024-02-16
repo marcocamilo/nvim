@@ -13,4 +13,7 @@ return {
 
   -- Repeat with .
   "tpope/vim-repeat",
+
+  -- kitty config highlighting
+  "fladson/vim-kitty",
 }
