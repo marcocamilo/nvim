@@ -184,6 +184,15 @@ return {
 				v = { "<cmd>MarkdownPreviewToggle<CR>", "Markdown Preview" },
 				h = { "<cmd>MarkdownHeaders<CR>", "Markdown Headers" },
 			},
+      -- NOICE
+      n = {
+        name = "Noice",
+        l = { "<cmd>Noice last<cr>", "See last message" },
+        h = { "<cmd>Noice telescope<cr>", "Message history" },
+        a = { "<cmd>Noice all<cr>", "See all messages" },
+        d = { "<cmd>Noice dismiss<cr>", "Dismiss all messages" },
+        e = { "<cmd>Noice errors<cr>", "See all error messages" },
+      },
 			-- LSP
 			l = {
 				name = "LSP",
@@ -191,7 +200,7 @@ return {
 				D = { "<cmd>Telescope diagnostics bufnr=0<cr>", "Buffer Diagnostics" },
 				d = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Line Diagnostics" },
 				w = { "<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics" },
-				f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
+				f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format buffer" },
 				i = { "<cmd>LspInfo<cr>", "Info" },
 				j = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "Next Diagnostic" },
 				k = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },

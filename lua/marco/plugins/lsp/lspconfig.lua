@@ -1,4 +1,4 @@
-return 	{
+return {
   "neovim/nvim-lspconfig",
   tag = nil,
   version = nil,
@@ -8,11 +8,8 @@ return 	{
     { "williamboman/mason-lspconfig.nvim" },
     { "williamboman/mason.nvim" },
     { "hrsh7th/cmp-nvim-lsp" },
-    { "folke/neodev.nvim", opt = {} },
-    {
-      "microsoft/python-type-stubs",
-      cond = false,
-    },
+    { "folke/neodev.nvim",                opt = {} },
+    { "microsoft/python-type-stubs",      cond = false },
   },
   config = function()
     require("mason").setup()
@@ -35,18 +32,34 @@ return 	{
       buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
       local opts = { noremap = true, silent = true }
 
+      -- set keybinds
+      opts.desc = "Show LSP references"
+      buf_set_keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
+
+      opts.desc = "Go to declaration"
+      buf_set_keymap("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
+
+      opts.desc = "Show LSP definitions"
+      buf_set_keymap("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
+
+      opts.desc = "Show LSP implementations"
+      buf_set_keymap("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
+
+      opts.desc = "Show LSP type definitions"
+      buf_set_keymap("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
+
+      opts.desc = "Show document symbols"
       buf_set_keymap("n", "gS", "<cmd>Telescope lsp_document_symbols<CR>", opts)
-      buf_set_keymap("n", "gD", "<cmd>Telescope lsp_type_definitions<CR>", opts)
-      buf_set_keymap("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
-      buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-      buf_set_keymap("n", "gh", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-      buf_set_keymap("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
-      buf_set_keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
-      buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
-      buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-      buf_set_keymap("n", "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>", opts)
-      buf_set_keymap("n", "<leader>lR", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-      buf_set_keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format()<cr>", opts)
+
+      opts.desc = "Go to previous diagnostic"
+      buf_set_keymap("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
+
+      opts.desc = "Go to next diagnostic"
+      buf_set_keymap("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
+
+      opts.desc = "Show documentation for what is under cursor"
+      buf_set_keymap("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
+
       client.server_capabilities.document_formatting = true
     end
 
@@ -61,11 +74,15 @@ return 	{
       buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
       local opts = { noremap = true, silent = true }
 
-      buf_set_keymap("n", "gh", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-      buf_set_keymap("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
-      buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
-      buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-      buf_set_keymap("n", "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>", opts)
+      opts.desc = "Show LSP implementations"
+      buf_set_keymap("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
+
+      opts.desc = "Go to previous diagnostic"
+      buf_set_keymap("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
+
+      opts.desc = "Go to next diagnostic"
+      buf_set_keymap("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
+
       client.server_capabilities.document_formatting = true
     end
 
@@ -74,13 +91,12 @@ return 	{
       debounce_text_changes = 150,
     }
 
-    vim.lsp.handlers["textDocument/publishDiagnostics"] =
-      vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = true,
-        signs = true,
-        underline = true,
-        update_in_insert = false,
-      })
+    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+      virtual_text = true,
+      signs = true,
+      underline = true,
+      update_in_insert = false,
+    })
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
       vim.lsp.handlers.hover,
       { border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" } }
@@ -266,9 +282,8 @@ return 	{
         },
       },
       root_dir = function(fname)
-        return util.root_pattern(".git", "setup.py", "setup.cfg", "pyproject.toml", "requirements.txt")(
-          fname
-        ) or util.path.dirname(fname)
+        return util.root_pattern(".git", "setup.py", "setup.cfg", "pyproject.toml", "requirements.txt")(fname)
+            or util.path.dirname(fname)
       end,
     })
 
