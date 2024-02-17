@@ -184,11 +184,11 @@ return {
 				v = { "<cmd>MarkdownPreviewToggle<CR>", "Markdown Preview" },
 				h = { "<cmd>MarkdownHeaders<CR>", "Markdown Headers" },
 			},
-      -- NOICE
+      -- NOICE / NOTIFY
       n = {
         name = "Noice",
         l = { "<cmd>Noice last<cr>", "See last message" },
-        h = { "<cmd>Noice telescope<cr>", "Message history" },
+        h = { "<cmd>Telescope notify<cr>", "Message history" },
         a = { "<cmd>Noice all<cr>", "See all messages" },
         d = { "<cmd>Noice dismiss<cr>", "Dismiss all messages" },
         e = { "<cmd>Noice errors<cr>", "See all error messages" },
