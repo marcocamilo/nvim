@@ -206,7 +206,7 @@ return {
 				k = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
 				l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
 				q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
-				r = { "<cmd>IncRename", "Smart rename" },
+				r = { "<cmd>IncRename<cr>", "Smart rename" },
 				R = { "<cmd>LspRestart<CR>", "Restart LSP" },
 				s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 				S = { "cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
@@ -298,7 +298,7 @@ return {
 				},
 				["v"] = { "<cmd>ToggleTerm direction=vertical size=55 name=vertical<CR>", "Toggle Term Vertical" },
 				["h"] = { "<cmd>ToggleTerm direction=horizontal name=horizontal<CR>", "Toggle Term Horizontal" },
-				["c"] = { "<cmd>ToggleTerm direction=float<CR>", "Toggle Term Center" },
+				["t"] = { "<cmd>ToggleTerm direction=float<CR>", "Toggle Term Center" },
 			},
 			-- JUPYTER
 			-- j = {
