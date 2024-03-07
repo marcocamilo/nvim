@@ -279,11 +279,12 @@ return {
 				},
         -- c = {
         --   name = "Copilot",
-        --   p = { "<cmd>Copilot panel<CR>", "Copilot panel" },
-        --   s = { "<cmd>Copilot snippet<CR>", "Copilot status" },
-        --   e = { "<cmd>Copilot enable<CR>", "Copilot enable" },
-        --   d = { "<cmd>Copilot disable<CR>", "Copilot disable" },
-        -- }
+        a = { "<cmd>Copilot suggestion<CR>",  "Copilot suggestions (autocomplete)" },
+        p = { "<cmd>Copilot panel<CR>", "Copilot panel" },
+        s = { "<cmd>Copilot status<CR>", "Copilot status" },
+        e = { "<cmd>Copilot enable<CR>", "Copilot enable" },
+        d = { "<cmd>Copilot disable<CR>", "Copilot disable" },
+        -- },
 			},
 			-- T KEY
 			t = {

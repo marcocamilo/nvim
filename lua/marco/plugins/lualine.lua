@@ -127,9 +127,10 @@ return {
         lualine_x = { 
           diagnostics,
           lazy_status_config,
-          "encoding",
+          -- "encoding",
           "fileformat",
           filetype,
+          "copilot"
         },
         lualine_y = { getWords, "progress" },
         lualine_z = { date },
