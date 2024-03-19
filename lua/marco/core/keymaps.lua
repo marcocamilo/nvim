@@ -145,7 +145,7 @@ keymap("v", "<cr>", "<Plug>SlimeRegionSend<cmd>TmuxNavigatePrevious<cr>", opts)
 --   IPy                                                               
 --  ───────────────────────────────────────────────────────────────────
 -- local function initiate_ipy()
---   vim.cmd("Lazy load nvim-ipy")
+--   vim.cmd("Lazy load nvim-ipy")key
 --   vim.defer_fn(function()
 --       vim.cmd("RunQtConsole")
 --       vim.defer_fn(function()
@@ -157,3 +157,10 @@ keymap("v", "<cr>", "<Plug>SlimeRegionSend<cmd>TmuxNavigatePrevious<cr>", opts)
 -- keymap("n", "<leader>rip", initiate_ipy, { desc = "Initiate IPy" }, opts)
 -- keymap({"n"}, "<c-cr>", "<Plug>(IPy-RunCell)", { desc = "IPython Run Cell" }, opts)
 -- keymap({"n", "v"}, "<leader><cr>", "<Plug>(IPy-Run)", { desc = "IPython Run Line or Selection" }, opts)
+--
+--  ───────────────────────────────────────────────────────────────────
+--   BULLETS                                                           
+--  ───────────────────────────────────────────────────────────────────
+-- keymap("n", "<<", "<Plug>(bullets-promote)", opts)
+-- keymap("n", ">>", "<Plug>(bullets-demote)", opts)
+-- keymap("n", "o", "<Plug>(bullets-newline)")

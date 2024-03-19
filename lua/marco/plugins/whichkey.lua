@@ -183,6 +183,7 @@ return {
 				name = "Markdown",
 				v = { "<cmd>MarkdownPreviewToggle<CR>", "Markdown Preview" },
 				h = { "<cmd>MarkdownHeaders<CR>", "Markdown Headers" },
+				t = { "<cmd>MDInsertToc<CR>", "Insert TOC" },
 			},
       -- NOICE / NOTIFY
       n = {
