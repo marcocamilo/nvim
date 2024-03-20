@@ -5,6 +5,7 @@ return {
       "catppuccin",
       -- "nightfox",
       -- "tokyonight",
+      -- "onedark",
     },
     defaults = {
       autocmds = false, -- lazyvim.config.autocmds
