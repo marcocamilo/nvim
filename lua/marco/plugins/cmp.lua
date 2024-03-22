@@ -70,21 +70,21 @@ return {
 
 				-- NEOTAB
 				["<Tab>"] = cmp.mapping(function()
-					if cmp.visible() then
-						cmp.select_next_item()
-					elseif luasnip.jumpable(1) then
+					-- if cmp.visible() then
+					-- 	cmp.select_next_item()
+					if luasnip.jumpable(1) then
 						luasnip.jump(1)
           else
 						neotab.tabout()
 					end
 				end),
-				["<S-Tab>"] = cmp.mapping(function(fallback)
-					if cmp.visible() then
-						cmp.select_prev_item()
-					else
-						fallback()
-					end
-				end, { "i", "s" }),
+				-- ["<S-Tab>"] = cmp.mapping(function(fallback)
+				-- 	if cmp.visible() then
+				-- 		cmp.select_prev_item()
+				-- 	else
+				-- 		fallback()
+				-- 	end
+				-- end, { "i", "s" }),
 			},
 			autocomplete = false,
 			formatting = {

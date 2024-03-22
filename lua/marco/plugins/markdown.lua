@@ -18,8 +18,8 @@ return {
 
         vim.keymap.set("x", "<C-b>", toggle("b"), { buffer = bufnr })
         vim.keymap.set("x", "<C-i>", toggle("i"), { buffer = bufnr })
-        vim.keymap.set("i", "<C-b>", "****<Left><Left>", { buffer = bufnr })
-        vim.keymap.set("i", "<C-i>", "**<Left>", { buffer = bufnr })
+        -- vim.keymap.set("i", "<C-b>", "****<Left><Left>", { buffer = bufnr })
+        -- vim.keymap.set("i", "<C-i>", "**<Left>", { buffer = bufnr })
 
       end,
     },
