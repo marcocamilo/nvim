@@ -59,10 +59,10 @@ keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(v
 --   BUFFERS, WINDOWS AND TABS                                         
 --  ───────────────────────────────────────────────────────────────────
 -- Buffer Navigation
--- keymap("n", "<S-l>", "<cmd>bnext<CR>", opts)
--- keymap("n", "<S-h>", "<cmd>bprevious<CR>", opts)
-keymap("n", "<Tab>", "<cmd>bnext<CR>", opts)
-keymap("n", "<S-Tab>", "<cmd>bprevious<CR>", opts)
+keymap("n", "<S-l>", "<cmd>bnext<CR>", opts)
+keymap("n", "<S-h>", "<cmd>bprevious<CR>", opts)
+-- keymap("n", "<Tab>", "<cmd>bnext<CR>", opts)
+-- keymap("n", "<S-Tab>", "<cmd>bprevious<CR>", opts)
 keymap("n", "<S-q>", "<cmd>bd<CR>", opts) -- close buffers
 
 -- Window Navigation
