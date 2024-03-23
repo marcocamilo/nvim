@@ -48,7 +48,7 @@ return {
 				["<C-u>"] = cmp.mapping.scroll_docs(-4),
 				["<C-d>"] = cmp.mapping.scroll_docs(4),
 				["<CR>"] = cmp.mapping.confirm({ select = false }),
-				["<C-e>"] = cmp.mapping.abort(),
+				["<C-x>"] = cmp.mapping.abort(),
 
 				-- TABS Original
 				-- ["<Tab>"] = cmp.mapping(function(fallback)
@@ -70,9 +70,9 @@ return {
 
 				-- NEOTAB
 				["<Tab>"] = cmp.mapping(function()
-					-- if cmp.visible() then
-					-- 	cmp.select_next_item()
-					if luasnip.jumpable(1) then
+					if cmp.visible() then
+						cmp.select_next_item()
+          elseif luasnip.jumpable(1) then
 						luasnip.jump(1)
           else
 						neotab.tabout()
