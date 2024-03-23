@@ -38,10 +38,8 @@ keymap("v", "c", '"_c', opts)
 -- keymap("n", "<C-H>", "<cmd>MoveHChar(-1)<CR>", opts)
 -- keymap("n", "<C-L>", "<cmd>MoveHChar(1)<CR>", opts)
 
--- keymap("v", "<S-j>", "<cmd>MoveBlock(1)<CR>", opts)
--- keymap("v", "<S-k>", "<cmd>MoveBlock(-1)<CR>", opts)
--- keymap("v", "<C-h>", "<cmd>MoveHBlock(-1)<CR>", opts)
--- keymap("v", "<C-l>", "<cmd>MoveHBlock(1)<CR>", opts)
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Move to line limits (0 $ ^ g_)
 -- keymap({ "n", "v" }, "gh", "^", opts)
@@ -61,8 +59,10 @@ keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(v
 --   BUFFERS, WINDOWS AND TABS                                         
 --  ───────────────────────────────────────────────────────────────────
 -- Buffer Navigation
-keymap("n", "<S-l>", "<cmd>bnext<CR>", opts)
-keymap("n", "<S-h>", "<cmd>bprevious<CR>", opts)
+-- keymap("n", "<S-l>", "<cmd>bnext<CR>", opts)
+-- keymap("n", "<S-h>", "<cmd>bprevious<CR>", opts)
+keymap("n", "<Tab>", "<cmd>bnext<CR>", opts)
+keymap("n", "<S-Tab>", "<cmd>bprevious<CR>", opts)
 keymap("n", "<S-q>", "<cmd>bd<CR>", opts) -- close buffers
 
 -- Window Navigation
