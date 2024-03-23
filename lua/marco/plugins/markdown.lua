@@ -10,18 +10,16 @@ return {
         go_next_heading = "<C-j>", -- (string|boolean) set cursor to next section heading
         go_prev_heading = "<C-k>", -- (string|boolean) set cursor to previous section heading
       },
-      on_attach = function(bufnr)
-        local function toggle(key)
-          return "<Esc>gv<Cmd>lua require'markdown.inline'"
-            .. ".toggle_emphasis_visual'" .. key .. "'<CR>"
-        end
-
-        vim.keymap.set("x", "<C-b>", toggle("b"), { buffer = bufnr })
-        vim.keymap.set("x", "<C-i>", toggle("i"), { buffer = bufnr })
+      -- on_attach = function(bufnr)
+      --   local function toggle(key)
+      --     return "<Esc>gv<Cmd>lua require'markdown.inline'"
+      --       .. ".toggle_emphasis_visual'" .. key .. "'<CR>"
+      --   end
+      --   vim.keymap.set("x", "<C-b>", toggle("b"), { buffer = bufnr })
+      --   vim.keymap.set("x", "<C-i>", toggle("i"), { buffer = bufnr })
         -- vim.keymap.set("i", "<C-b>", "****<Left><Left>", { buffer = bufnr })
         -- vim.keymap.set("i", "<C-i>", "**<Left>", { buffer = bufnr })
-
-      end,
+      -- end,
     },
   },
   {
