@@ -15,7 +15,7 @@ return {
 
 		telescope.setup({
 			defaults = {
-				path_display = { "truncate " },
+				path_display = { "smart" },
         file_ignore_patterns = {
           "node_modules",
           "%_files/*.html",
@@ -37,7 +37,7 @@ return {
 					enable_preview = true,
 				},
         find_files = {
-          theme = "dropdown",
+          -- theme = "dropdown",
           hidden = false,
           find_command = {
             "rg",
