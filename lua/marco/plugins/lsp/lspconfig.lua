@@ -163,11 +163,11 @@ return {
 			flags = lsp_flags,
 		})
 
-		lspconfig.emmet_language_server.setup({
-			on_attach = on_attach,
-			capabilities = capabilities,
-			flags = lsp_flags,
-		})
+		-- lspconfig.emmet_language_server.setup({
+		-- 	on_attach = on_attach,
+		-- 	capabilities = capabilities,
+		-- 	flags = lsp_flags,
+		-- })
 
 		lspconfig.yamlls.setup({
 			on_attach = on_attach,
@@ -183,11 +183,11 @@ return {
 			},
 		})
 
-		lspconfig.dotls.setup({
-			on_attach = on_attach,
-			capabilities = capabilities,
-			flags = lsp_flags,
-		})
+		-- lspconfig.dotls.setup({
+		-- 	on_attach = on_attach,
+		-- 	capabilities = capabilities,
+		-- 	flags = lsp_flags,
+		-- })
 
 		local function strsplit(s, delimiter)
 			local result = {}
