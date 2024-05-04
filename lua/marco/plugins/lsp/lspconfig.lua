@@ -127,11 +127,11 @@ return {
 		--   filetypes = { "markdown", "tex", "quarto" },
 		-- }
 		-- LaTeX
-		lspconfig["ltex"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			filetypes = { "markdown", "tex", "quarto" },
-		})
+		-- lspconfig["ltex"].setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- 	filetypes = { "markdown", "tex", "quarto" },
+		-- })
 		lspconfig["texlab"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
