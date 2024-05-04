@@ -46,8 +46,8 @@ return {
 				group = "+", -- symbol prepended to a group
 			},
 			popup_mappings = {
-				scroll_down = "<c-j>", -- binding to scroll down inside the popup
-				scroll_up = "<c-k>", -- binding to scroll up inside the popup
+				scroll_down = "<c-d>", -- binding to scroll down inside the popup
+				scroll_up = "<c-u>", -- binding to scroll up inside the popup
 			},
 			window = {
 				border = "none", -- none, single, double, shadow
@@ -207,7 +207,6 @@ return {
 				k = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
 				l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
 				q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
-				r = { "<cmd>IncRename<cr>", "Smart rename" },
 				R = { "<cmd>LspRestart<CR>", "Restart LSP" },
 				s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 				S = { "cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
@@ -248,13 +247,14 @@ return {
 				-- b = { "Vgg<cmd>ToggleTermSendVisualLines<CR>''", "Send From Beginning to Current Line" },
 				-- e = { "VG<cmd>ToggleTermSendVisualLines<CR>", "Send From Current Line to End" },
 			},
-			r = {
-				name = "IPython",
-				q = { "<cmd>RunQtConsole<CR>", "Run Qt Console" },
-				k = { "<cmd>IPython --existing --no-window<CR>", "Connect kernel" },
-        c = { "<Plug>(IPy-RunCell)", "Run Cell" },
-        l = { "<Plug>(IPy-Run)", "Run Line" },
-			},
+			-- r = {
+			-- 	name = "IPython",
+			-- 	q = { "<cmd>RunQtConsole<CR>", "Run Qt Console" },
+			-- 	k = { "<cmd>IPython --existing --no-window<CR>", "Connect kernel" },
+   --      c = { "<Plug>(IPy-RunCell)", "Run Cell" },
+   --      l = { "<Plug>(IPy-Run)", "Run Line" },
+			-- },
+      -- ["rn"] = { "<cmd>IncRename ", "Incremental rename" },
 			-- C KEY
 			c = {
 				b = {

@@ -11,7 +11,7 @@ return {
 					keymap = {
 						accept = "<C-cr>",
 						accept_word = "<C-l>",
-						accept_line = false,
+						accept_line = "<C-j>",
 						next = "<C-]>",
 						prev = "<C-[>",
 						dismiss = "<Esc>",
@@ -20,7 +20,7 @@ return {
 				panel = { enabled = true },
 				filetypes = {
 					yaml = false,
-					markdown = false,
+					-- markdown = false,
 					help = false,
 					gitcommit = false,
 					gitrebase = false,
@@ -35,12 +35,12 @@ return {
 		end,
 	},
 	{
+		"AndreM222/copilot-lualine",
+	},
+	{
 		-- "zbirenbaum/copilot-cmp",
 		-- config = function ()
 		--   require("copilot_cmp").setup()
 		-- end
-	},
-	{
-		"AndreM222/copilot-lualine",
 	},
 }
