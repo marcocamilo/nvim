@@ -46,6 +46,9 @@ return {
           mantle = "#000000",
           crust = "#000000",
         },
+      integrations = {
+          headlines = true
+        },
       },
     },
     -- config = function(_, opts)
