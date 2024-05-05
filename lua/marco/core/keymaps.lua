@@ -38,8 +38,10 @@ keymap("v", "c", '"_c', opts)
 -- keymap("n", "<C-H>", "<cmd>MoveHChar(-1)<CR>", opts)
 -- keymap("n", "<C-L>", "<cmd>MoveHChar(1)<CR>", opts)
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+-- keymap("v", "J", ":m '>+1<CR>gv=gv")
+-- keymap("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set('v', '<S-j>', ':MoveBlock(1)<CR>', opts)
+vim.keymap.set('v', '<S-k>', ':MoveBlock(-1)<CR>', opts)
 
 -- Move to line limits (0 $ ^ g_)
 -- keymap({ "n", "v" }, "gh", "^", opts)

@@ -172,6 +172,8 @@ return {
 			-- LAZYGIT
 			["lg"] = { "<cmd>LazyGit<CR>", "LazyGit" },
 
+      -- Outline
+      ["o"] = { "<cmd>Outline<CR>", "Toggle Outline" },
 			-- TELESCOPE
 			-- ["b"] = {
 			-- 	"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
