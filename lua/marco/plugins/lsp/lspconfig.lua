@@ -143,18 +143,18 @@ return {
 			filetypes = { "tex", "plaintex", "bib", "rmd", "quarto" },
 		})
 
-		lspconfig.r_language_server.setup({
-			on_attach = on_attach,
-			capabilities = capabilities,
-			flags = lsp_flags,
-			settings = {
-				r = {
-					lsp = {
-						rich_documentation = false,
-					},
-				},
-			},
-		})
+		-- lspconfig.r_language_server.setup({
+		-- 	on_attach = on_attach,
+		-- 	capabilities = capabilities,
+		-- 	flags = lsp_flags,
+		-- 	settings = {
+		-- 		r = {
+		-- 			lsp = {
+		-- 				rich_documentation = false,
+		-- 			},
+		-- 		},
+		-- 	},
+		-- })
 
 		lspconfig.cssls.setup({
 			on_attach = on_attach,
@@ -350,17 +350,23 @@ return {
 		--   end,
 		-- })
 
-		lspconfig.julials.setup({
-			on_attach = on_attach,
-			capabilities = capabilities,
-			flags = lsp_flags,
-		})
+		-- lspconfig.julials.setup({
+		-- 	on_attach = on_attach,
+		-- 	capabilities = capabilities,
+		-- 	flags = lsp_flags,
+		-- })
 
 		lspconfig.bashls.setup({
 			on_attach = on_attach,
 			capabilities = capabilities,
 			flags = lsp_flags,
 			filetypes = { "sh", "bash" },
+		})
+
+		lspconfig.tsserver.setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+			flags = lsp_flags,
 		})
 
 		-- Add additional languages here.
