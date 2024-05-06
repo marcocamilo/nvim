@@ -147,7 +147,7 @@ return {
     -- end
 		local n_mappings = {
 			-- ALPHA
-			["a"] = { "<cmd>Alpha<cr>", "Alpha" },
+			-- ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
 
 			-- NVIMTREE
 			["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
