@@ -140,8 +140,10 @@ keymap("n", "<leader>xt", "o```{=tex}<cr>```<esc>O", { desc = "TeX code chunk" }
 -- just like in e.g. RStudio
 -- needs iTerm (or other terminal) config:
 -- keyboard shortcut: Ctrl + Enter → Send Escape Sequence: "[13;5u"
-keymap("n", "<c-cr>", "<Plug>SlimeSendCell<cmd>TmuxNavigatePrevious<cr>", opts)
-keymap("v", "<cr>", "<Plug>SlimeRegionSend<cmd>TmuxNavigatePrevious<cr>", opts)
+keymap("n", "<c-cr>", "<Plug>SlimeSendCell<cr>", opts)
+-- keymap("n", "<c-cr>", "<Plug>SlimeSendCell<cmd>TmuxNavigatePrevious<cr>", opts)
+keymap("v", "<c-cr>", "<Plug>SlimeRegionSend<cr>", opts)
+-- keymap("v", "<cr>", "<Plug>SlimeRegionSend<cmd>TmuxNavigatePrevious<cr>", opts)
 
 --  ───────────────────────────────────────────────────────────────────
 --   IPy                                                               

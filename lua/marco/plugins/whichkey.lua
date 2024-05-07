@@ -234,16 +234,27 @@ return {
 			-- REPL COMMANDS (SLIME and IPY)
 			s = {
 				name = "Slime",
-				l = { "<cmd>SlimeSendCurrentLine<CR><Cmd>TmuxNavigatePrevious<CR>", "Send Current Line" },
+				l = { "<cmd>SlimeSendCurrentLine<CR>", "Send Current Line" },
+				-- l = { "<cmd>SlimeSendCurrentLine<CR><Cmd>TmuxNavigatePrevious<CR>", "Send Current Line" },
 				b = {
-					"<Cmd>normal! Vgg<Plug>SlimeRegionSend<CR><Cmd>TmuxNavigatePrevious<CR>",
+					"<Cmd>normal! Vgg<Plug>SlimeRegionSend<CR>",
 					"Send From Beginning to Current Line",
 				},
+				-- b = {
+				-- 	"<Cmd>normal! Vgg<Plug>SlimeRegionSend<CR><Cmd>TmuxNavigatePrevious<CR>",
+				-- 	"Send From Beginning to Current Line",
+				-- },
 				e = {
-					"<Cmd>normal! VG<Plug>SlimeRegionSend<CR><Cmd>TmuxNavigatePrevious<CR>",
+					"<Cmd>normal! VG<Plug>SlimeRegionSend<CR>",
 					"Send From Current Line to End",
 				},
-				c = { "<Plug>SlimeSendCell<cr><Cmd>TmuxNavigatePrevious<CR>", "Send Cell" },
+				-- e = {
+				-- 	"<Cmd>normal! VG<Plug>SlimeRegionSend<CR><Cmd>TmuxNavigatePrevious<CR>",
+				-- 	"Send From Current Line to End",
+				-- },
+				c = { "<Plug>SlimeSendCell<cr>", "Send Cell" },
+				-- c = { "<Plug>SlimeSendCell<cr><Cmd>TmuxNavigatePrevious<CR>", "Send Cell" },
+
 				-- name = "Toggle Term Send",
 				-- l = { "<cmd>ToggleTermSendCurrentLine<CR>", "Send Current Line" },
 				-- b = { "Vgg<cmd>ToggleTermSendVisualLines<CR>''", "Send From Beginning to Current Line" },
