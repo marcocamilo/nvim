@@ -49,9 +49,9 @@ return {
 				["<Tab>"] = cmp.mapping(function()
 					if cmp.visible() then
 						cmp.select_next_item()
-          elseif luasnip.jumpable(1) then
+					elseif luasnip.jumpable(1) then
 						luasnip.jump(1)
-          else
+					else
 						neotab.tabout()
 					end
 				end),
@@ -161,7 +161,14 @@ return {
 			sources = {
 				{ name = "copilot" },
 				{ name = "otter" }, -- for code chunks in quarto
-				{ name = "path" },
+				{
+					name = "path",
+					option = {
+						get_cwd = function(params)
+							return vim.fn.getcwd()
+						end,
+					},
+				},
 				{ name = "nvim_lsp" },
 				{ name = "nvim_lsp_signature_help" },
 				{ name = "luasnip" },
