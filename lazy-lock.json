@@ -75,6 +75,7 @@
   "outline.nvim": { "branch": "main", "commit": "dbd836893fb99cfc33119d7c4abbdb700210f54b" },
   "plenary.nvim": { "branch": "master", "commit": "08e301982b9a057110ede7a735dd1b5285eb341f" },
   "popup.nvim": { "branch": "master", "commit": "b7404d35d5d3548a82149238289fa71f7f6de4ac" },
+  "project.nvim": { "branch": "main", "commit": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb" },
   "promise-async": { "branch": "main", "commit": "93540c168c5ed2b030ec3e6c40ab8bbb85e36355" },
   "quarto-nvim": { "branch": "main", "commit": "67e09027b5d8bd948907734fc6fb15028ffdcd28" },
   "searchbox.nvim": { "branch": "main", "commit": "6cf79dc53794b06a95791a034341f1332e04dd58" },

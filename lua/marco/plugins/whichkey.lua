@@ -160,7 +160,7 @@ return {
 				"<cmd>Telescope live_grep<CR>",
 				"Find Text",
 			},
-			["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+			["p"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 			["b"] = { "<cmd>Telescope bibtex<cr>", "Telescope BibTeX" },
 
 			-- LAZY
