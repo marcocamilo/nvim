@@ -27,6 +27,7 @@ return {
         "python",
         "query",
         "r",
+        "toml",
         "vim",
         "vimdoc",
         "yaml",
