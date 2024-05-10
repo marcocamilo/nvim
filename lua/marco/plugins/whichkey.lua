@@ -298,6 +298,8 @@ return {
         s = { "<cmd>Copilot status<CR>", "Copilot status" },
         e = { "<cmd>Copilot enable<CR>", "Copilot enable" },
         d = { "<cmd>Copilot disable<CR>", "Copilot disable" },
+
+        i = { "<cmd>ConformInfo<CR>", "Conform Info"},
         -- },
 			},
 			-- T KEY

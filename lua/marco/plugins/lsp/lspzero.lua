@@ -31,18 +31,17 @@ return {
 				},
 			})
 
+			-- Formatters
 			mason_tool_installer.setup({
 				ensure_installed = {
 					"prettier", -- prettier formatter
 					"stylua", -- lua formatter
-					"isort", -- python formatter
-					"black", -- python formatter
-					"pylint", -- python linter
-					"eslint_d", -- js linter
-					"ruff",
+					-- "isort", -- python formatter
+					-- "black", -- python formatter
 					"mdformat",
 					"latexindent",
 					"bibtex-tidy",
+          "eslint_d",
 				},
 			})
 		end,
@@ -84,9 +83,11 @@ return {
 					"tsserver",
 					"texlab",
 					"yamlls",
+					"ruff",
 				},
 
 				handlers = {
+
 					function(server_name)
 						require("lspconfig")[server_name].setup({})
 					end,
@@ -100,10 +101,12 @@ return {
 								"requirements.txt",
 								"Pipfile",
 								"pyrightconfig.json",
-                ".venv"
+								".venv"
 							),
 						})
 					end,
+
+					ruff = lsp_zero.noop,
 
 					marksman = function()
 						lspconfig.marksman.setup({
