@@ -347,7 +347,8 @@ return {
 					l = { "<cmd>ToggleTermSendVisualLines<CR>", "Send Visual Lines" },
 				},
 			},
-			s = { "<Plug>SlimeRegionSend<CR><Cmd>TmuxNavigatePrevious<CR>", "Send region (slime)" },
+			s = { "<Plug>SlimeRegionSend<CR>", "Send region (slime)" },
+			-- s = { "<Plug>SlimeRegionSend<CR><Cmd>TmuxNavigatePrevious<CR>", "Send region (slime)" },
 			-- r = {
 			--   name = "Run Code",
 			--   s = { "<cmd>MoltenEvaluateVisual<CR>", "Run visual selection (Molten)" },
