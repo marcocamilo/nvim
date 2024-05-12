@@ -43,7 +43,8 @@ return {
 				["<C-u>"] = cmp.mapping.scroll_docs(-4),
 				["<C-d>"] = cmp.mapping.scroll_docs(4),
 				["<CR>"] = cmp.mapping.confirm({ select = false }),
-				["<S-Tab>"] = cmp.mapping.abort(),
+				["<C-e>"] = cmp.mapping.abort(),
+        
 
 				-- NEOTAB
 				["<Tab>"] = cmp.mapping(function()
@@ -55,13 +56,13 @@ return {
 						neotab.tabout()
 					end
 				end),
-				-- ["<S-Tab>"] = cmp.mapping(function(fallback)
-				-- 	if cmp.visible() then
-				-- 		cmp.select_prev_item()
-				-- 	else
-				-- 		fallback()
-				-- 	end
-				-- end, { "i", "s" }),
+				["<S-Tab>"] = cmp.mapping(function(fallback)
+					if cmp.visible() then
+						cmp.select_prev_item()
+					else
+						fallback()
+					end
+				end, { "i", "s" }),
 			},
 			autocomplete = false,
 			formatting = {
