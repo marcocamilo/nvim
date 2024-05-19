@@ -56,6 +56,7 @@
   "nabla.nvim": { "branch": "master", "commit": "27a6ea9ed7452bb9e0b19eb0942b5bcf7d051b2f" },
   "neoscroll.nvim": { "branch": "master", "commit": "e78657719485c5663b88e5d96ffcfb6a2fe3eec0" },
   "neotab.nvim": { "branch": "master", "commit": "6c6107dddaa051504e433608f59eca606138269b" },
+  "nerdy.nvim": { "branch": "main", "commit": "1ad36242f40a8fd95ae5711258540a07a5dabb51" },
   "nightfly": { "branch": "master", "commit": "a54ba6131c4e5feb47176efb78b1f93501df1572" },
   "noice.nvim": { "branch": "main", "commit": "f4decbc7a80229ccc9f86026b74bdcf0c39e38a7" },
   "nord.nvim": { "branch": "master", "commit": "80c1e5321505aeb22b7a9f23eb82f1e193c12470" },
