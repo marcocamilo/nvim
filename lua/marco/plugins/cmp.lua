@@ -40,12 +40,12 @@ return {
 			mapping = {
 				["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
 				["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
-				["<C-u>"] = cmp.mapping.scroll_docs(-4),
-				["<C-d>"] = cmp.mapping.scroll_docs(4),
+				["<C-h>"] = cmp.mapping.scroll_docs(-4),
+				["<C-l>"] = cmp.mapping.scroll_docs(4),
+        ["<C-c>"] = cmp.mapping.complete(),
 				["<CR>"] = cmp.mapping.confirm({ select = false }),
 				["<C-e>"] = cmp.mapping.abort(),
         
-
 				-- NEOTAB
 				["<Tab>"] = cmp.mapping(function()
 					if cmp.visible() then
@@ -129,17 +129,17 @@ return {
 					local icons = {
 						Copilot = "",
 						otter = "[🦦]",
-						nvim_lsp = "[LSP]",
-						luasnip = "[snip]",
-						buffer = "[buf]",
-						path = "[path]",
-						spell = "[spell]",
-						pandoc_references = "[ref]",
-						tags = "[tag]",
-						treesitter = "[TS]",
+						nvim_lsp = "[]",
+						luasnip = "[󰢱]",
+						buffer = "[󰹑]",
+						path = "[]",
+						spell = "[]",
+						pandoc_references = "[󰏛]",
+						tags = "[󰏢]",
+						treesitter = "[]",
 						calc = "[calc]",
-						latex_symbols = "[tex]",
-						emoji = "[emoji]",
+						latex_symbols = "[]",
+						emoji = "[󰱨]",
 					}
 
 					if require("lspkind").symbol_map[vim_item.kind] and vim_item.kind then
