@@ -41,7 +41,7 @@ opt.timeoutlen = 1000 -- time to wait for a mapped sequence to complete (in mill
 opt.undofile = true -- enable persistent undo
 opt.updatetime = 300 -- faster completion (4000ms default)
 opt.winheight = 20
-opt.wrap = true -- display lines as one long line
+opt.wrap = false -- display lines as one long line
 opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 
 opt.shortmess:append("c") -- hide all the completion messages, e.g. "-- XXX completion (YYY)", "match 1 of 2", "The only match", "Pattern not found"
