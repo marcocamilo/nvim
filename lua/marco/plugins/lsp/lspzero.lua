@@ -79,6 +79,7 @@ return {
 					"html",
 					"cssls",
 					"lua_ls",
+          "marksman",
 					"pyright",
 					"tsserver",
 					"texlab",

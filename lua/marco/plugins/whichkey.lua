@@ -210,7 +210,7 @@ return {
 				l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
 				q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
 				R = { "<cmd>LspRestart<CR>", "Restart LSP" },
-			-- 	s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+				s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 			-- 	S = { "cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
 			},
 			-- SEARCH
