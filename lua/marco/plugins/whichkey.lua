@@ -152,6 +152,7 @@ return {
 			-- NVIMTREE
 			["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 
+      -- TELESCOPE
 			["f"] = {
 				"<cmd>Telescope find_files<CR>",
 				"Find files",
@@ -161,7 +162,11 @@ return {
 				"Find Text",
 			},
 			["p"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-			["b"] = { "<cmd>Telescope bibtex<cr>", "Telescope BibTeX" },
+			-- ["b"] = { "<cmd>Telescope bibtex<cr>", "Telescope BibTeX" },
+			["b"] = {
+				"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+				"Buffers",
+			},
 
 			-- LAZY
 			["L"] = { "<cmd>Lazy<CR>", "Lazy" },
@@ -174,11 +179,6 @@ return {
 
       -- Outline
       ["o"] = { "<cmd>Outline<CR>", "Toggle Outline" },
-			-- TELESCOPE
-			-- ["b"] = {
-			-- 	"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-			-- 	"Buffers",
-			-- },
 
 			-- MARKDOWN
 			m = {
@@ -335,6 +335,7 @@ return {
 				p = { "<cmd>QuartoPreview<CR>", "Quarto Preview" },
 				["cp"] = { "<cmd>QuartoClosePreview<CR>", "Quarto Close Preview" },
 				h = { "<cmd>QuartoHelp ", "Quarto Help" },
+        r = { "<cmd>!quarto render %<CR>", "Quarto Render"},
 			},
 		}
 		--  ┌────────────────────────────────────────────────────────────────────┐
