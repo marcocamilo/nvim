@@ -18,7 +18,8 @@ keymap("v", "p", '"_dP', opts)
 
 -- Better cut
 keymap("n", "x", "d", opts)
-keymap("n", "X", "dd", opts)
+keymap("n", "xx", "dd", opts)
+keymap("n", "X", "D", opts)
 
 -- Better delete
 keymap("n", "d", '"_d', opts)
