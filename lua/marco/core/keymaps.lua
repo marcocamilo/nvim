@@ -88,6 +88,11 @@ keymap("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) --
 -- keymap("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
 --  ───────────────────────────────────────────────────────────────────
+--   MISC                                                              
+--  ───────────────────────────────────────────────────────────────────
+keymap("n", "<leader>sw", "<cmd>set wrap!<CR>", { desc = "Toggle wrap" })
+
+--  ───────────────────────────────────────────────────────────────────
 --   MODES                                                             
 --  ───────────────────────────────────────────────────────────────────
 --   normal_mode = "n",
