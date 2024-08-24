@@ -16,33 +16,46 @@ return {
 		-- Defines the dash line (---) color
 		-- vim.api.nvim_command("highlight Dash guibg=#D19A66 gui=bold")
 
+		-- Define styling for headlines and other elements
 		local styling = {
 			query = vim.treesitter.query.parse(
 				"markdown",
 				[[
-              (fenced_code_block) @codeblock
-          ]]
+            (atx_heading [
+                (atx_h1_marker)
+                (atx_h2_marker)
+                (atx_h3_marker)
+                (atx_h4_marker)
+                (atx_h5_marker)
+                (atx_h6_marker)
+            ] @headline)
+
+            (fenced_code_block) @codeblock
+
+            (block_quote_marker) @quote
+            (block_quote (paragraph (inline (block_continuation) @quote)))
+            (block_quote (paragraph (block_continuation) @quote))
+            (block_quote (block_continuation) @quote)
+        ]]
 			),
-			codeblock_highlight = "CodeBlock",
+			bullet_highlights = {
+				"@text.title.1.marker.markdown",
+				"@text.title.2.marker.markdown",
+				"@text.title.3.marker.markdown",
+				"@text.title.4.marker.markdown",
+				"@text.title.5.marker.markdown",
+				"@text.title.6.marker.markdown",
+			},
 			treesitter_language = "markdown",
-			-- If set to false, headlines will be a single line and there will be no
-			-- "fat_headline_upper_string" and no "fat_headline_lower_string"
+			bullets = { "◉", "○", "✸", "✿" },
+			codeblock_highlight = "CodeBlock",
+			dash_highlight = "Dash",
+			dash_string = "-",
+			quote_highlight = "Quote",
+			quote_string = "┃",
 			fat_headlines = true,
-			--
-			-- Lines added above and below the header line makes it look thicker
-			-- "lower half block" unicode symbol hex:2584
-			-- "upper half block" unicode symbol hex:2580
 			fat_headline_upper_string = "▄",
 			fat_headline_lower_string = "▀",
-			--
-			-- You could add a full block if you really like it thick ;)
-			-- fat_headline_upper_string = "█",
-			-- fat_headline_lower_string = "█",
-			--
-			-- Other set of lower and upper symbols to try
-			-- fat_headline_upper_string = "▃",
-			-- fat_headline_lower_string = "-",
-			--
 			headline_highlights = {
 				"Headline1",
 				"Headline2",
@@ -52,39 +65,11 @@ return {
 				"Headline6",
 			},
 		}
-		-- Setup headlines.nvim with the newly defined highlight groups
+
+		-- Setup headlines.nvim with the defined styling
 		require("headlines").setup({
 			markdown = styling,
 			quarto = styling,
 		})
-
-		-- Custom header configuration
-		-- local visual = {
-		-- 	bullets = { "◉", "○", "✸", "✿" },
-		-- 	codeblock_highlight = "CodeBlock",
-		-- 	dash_highlight = "Dash",
-		-- 	dash_string = "-",
-		-- 	quote_highlight = "Quote",
-		-- 	quote_string = "┃",
-		-- 	fat_headlines = true,
-		-- 	fat_headline_upper_string = "▃",
-		-- 	fat_headline_lower_string = "▀",
-		-- }
-		-- require("headlines").setup({
-		-- 	quarto = {
-		-- 		query = vim.treesitter.query.parse(
-		-- 			"markdown",
-		-- 			[[
-		--             (fenced_code_block) @codeblock
-		--         ]]
-		-- 		),
-		-- 		codeblock_highlight = "CodeBlock",
-		-- 		treesitter_language = "markdown",
-		-- 		visual,
-		-- 	},
-		-- 	markdown = visual,
-		-- 	rmd = visual,
-		-- 	org = visual,
-		-- })
 	end,
 }
