@@ -15,6 +15,7 @@ return {
 						next = "<C-]>",
 						prev = "<C-[>",
 						dismiss = "<Esc>",
+            toggle = "<C-\\>",
 					},
 				},
 				panel = { enabled = true },
@@ -36,11 +37,5 @@ return {
 	},
 	{
 		"AndreM222/copilot-lualine",
-	},
-	{
-		-- "zbirenbaum/copilot-cmp",
-		-- config = function ()
-		--   require("copilot_cmp").setup()
-		-- end
 	},
 }
