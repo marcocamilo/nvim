@@ -2,6 +2,7 @@ return {
   {
     "tadmccorkle/markdown.nvim",
     event = "VeryLazy",
+    ft = { "markdown", "quarto" },
     opts = {
       -- configuration here or empty for defaults
       mappings = {

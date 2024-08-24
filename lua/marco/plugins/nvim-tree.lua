@@ -11,8 +11,8 @@ return {
     -- configure nvim-tree
     nvimtree.setup({
       view = {
-        width = 30,
-        side = "left",
+        width = 50,
+        side = "right",
       },
       update_focused_file = {
          enable = true,
