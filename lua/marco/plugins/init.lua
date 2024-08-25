@@ -11,10 +11,18 @@ return {
 	-- Repeat with .
 	"tpope/vim-repeat",
 
-	-- kitty config highlighting
+	-- Kitty Config Highlighting
 	"fladson/vim-kitty",
 
-  -- devicons
+	-- Search Box
+	{
+		"VonHeikemen/searchbox.nvim",
+		dependencies = {
+			{ "MunifTanjim/nui.nvim" },
+		},
+	},
+
+	-- devicons
 	{
 		"nvim-tree/nvim-web-devicons",
 		config = function()
