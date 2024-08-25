@@ -18,7 +18,7 @@ return {
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 		local lspkind = require("lspkind")
-		local neotab = require("neotab")
+		-- local neotab = require("neotab")
 		lspkind.init()
 
 		-- load vs-code like snippets from plugins (e.g. friendly-snippets)
@@ -38,27 +38,28 @@ return {
 				["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
 				["<C-h>"] = cmp.mapping.scroll_docs(-4),
 				["<C-l>"] = cmp.mapping.scroll_docs(4),
-        ["<C-c>"] = cmp.mapping.complete(),
+				["<C-c>"] = cmp.mapping.complete(),
 				["<CR>"] = cmp.mapping.confirm({ select = false }),
+				["<C-CR>"] = cmp.mapping.confirm({ select = true }),
 				["<C-e>"] = cmp.mapping.abort(),
-        
+
 				-- NEOTAB
-				["<Tab>"] = cmp.mapping(function()
-					if cmp.visible() then
-						cmp.select_next_item()
-					elseif luasnip.jumpable(1) then
-						luasnip.jump(1)
-					else
-						neotab.tabout()
-					end
-				end),
-				["<S-Tab>"] = cmp.mapping(function(fallback)
-					if cmp.visible() then
-						cmp.select_prev_item()
-					else
-						fallback()
-					end
-				end, { "i", "s" }),
+				-- ["<Tab>"] = cmp.mapping(function()
+				-- 	if cmp.visible() then
+				-- 		cmp.select_next_item()
+				-- 	elseif luasnip.jumpable(1) then
+				-- 		luasnip.jump(1)
+				-- 	else
+				-- 		neotab.tabout()
+				-- 	end
+				-- end),
+				-- ["<S-Tab>"] = cmp.mapping(function(fallback)
+				-- 	if cmp.visible() then
+				-- 		cmp.select_prev_item()
+				-- 	else
+				-- 		fallback()
+				-- 	end
+				-- end, { "i", "s" }),
 			},
 			autocomplete = false,
 			formatting = {
@@ -102,7 +103,7 @@ return {
 				{
 					name = "path",
 					option = {
-						get_cwd = function(params)
+						get_cwd = function()
 							return vim.fn.getcwd()
 						end,
 					},
