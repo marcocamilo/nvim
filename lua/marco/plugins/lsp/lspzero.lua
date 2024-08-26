@@ -41,7 +41,7 @@ return {
 					"mdformat",
 					"latexindent",
 					"bibtex-tidy",
-          "eslint_d",
+					"eslint_d",
 				},
 			})
 		end,
@@ -63,7 +63,10 @@ return {
 			lsp_zero.extend_lspconfig()
 
 			lsp_zero.on_attach(function(client, bufnr)
-				lsp_zero.default_keymaps({ buffer = bufnr })
+				lsp_zero.default_keymaps({
+					buffer = bufnr,
+					exclude = { "gs" },
+				})
 			end)
 
 			lsp_zero.set_sign_icons({
@@ -79,7 +82,7 @@ return {
 					"html",
 					"cssls",
 					"lua_ls",
-          "marksman",
+					"marksman",
 					"pyright",
 					"tsserver",
 					"texlab",
