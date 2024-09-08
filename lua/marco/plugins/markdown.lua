@@ -1,5 +1,17 @@
 return {
 	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+		opts = {
+			file_types = { "markdown", "quarto" },
+			win_options = {
+				conceallevel = {
+					rendered = 2,
+				},
+			},
+		},
+	},
+	{
 		"tadmccorkle/markdown.nvim",
 		ft = { "markdown", "quarto" },
 		opts = {
