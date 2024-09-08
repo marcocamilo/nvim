@@ -11,7 +11,14 @@ return {
 			relative_width = true,
 		},
 		symbol_folding = {
+      autofold_depth = 2,
 			markers = { "󰁕", "󰁆" },
+		},
+		providers = {
+			priority = { "markdown", "lsp", "coc", "norg" },
+			markdown = {
+				filetypes = { "markdown", "quarto" },
+			},
 		},
 		symbols = {
 			icons = {
