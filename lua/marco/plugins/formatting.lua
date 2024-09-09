@@ -6,6 +6,7 @@ return {
 
 		conform.setup({
 			formatters_by_ft = {
+        cpp = { "clang-format" },
 				javascript = { "prettier" },
 				bib = { "bibtex-tidy" },
 				css = { "prettier" },

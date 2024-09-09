@@ -42,6 +42,7 @@ return {
 					"latexindent",
 					"bibtex-tidy",
 					"eslint_d",
+          "clang-format",
 				},
 			})
 		end,
@@ -84,10 +85,10 @@ return {
 					"lua_ls",
 					"marksman",
 					"pyright",
-					"tsserver",
 					"texlab",
 					"yamlls",
 					"ruff",
+          "clangd",
 				},
 
 				handlers = {
