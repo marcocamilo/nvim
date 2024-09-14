@@ -11,7 +11,7 @@ return {
 			relative_width = true,
 		},
 		symbol_folding = {
-      autofold_depth = 2,
+      -- autofold_depth = 2,
 			markers = { "󰁕", "󰁆" },
 		},
 		providers = {

@@ -10,6 +10,7 @@ return {
 			vim.g.lsp_zero_extend_lspconfig = 0
 		end,
 	},
+
 	{
 		"williamboman/mason.nvim",
 		lazy = false,
@@ -30,23 +31,23 @@ return {
 					},
 				},
 			})
-
 			-- Formatters
 			mason_tool_installer.setup({
 				ensure_installed = {
 					"prettier", -- prettier formatter
 					"stylua", -- lua formatter
-					-- "isort", -- python formatter
-					-- "black", -- python formatter
+					"isort", -- python formatter
+					"black", -- python formatter
 					"mdformat",
 					"latexindent",
 					"bibtex-tidy",
 					"eslint_d",
-          "clang-format",
+					"clang-format",
 				},
 			})
 		end,
 	},
+
 	{
 		"neovim/nvim-lspconfig",
 		cmd = { "LspInfo", "LspInstall", "LspStart" },
@@ -88,7 +89,7 @@ return {
 					"texlab",
 					"yamlls",
 					"ruff",
-          "clangd",
+					"clangd",
 				},
 
 				handlers = {
@@ -123,6 +124,14 @@ return {
 					texlab = function()
 						lspconfig.texlab.setup({
 							filetypes = { "tex", "plaintex", "bib", "rmd", "quarto" },
+						})
+					end,
+					clangd = function()
+						lspconfig.clangd.setup({
+							filetypes = { "c", "cpp", "objc", "objcpp" },
+							init_options = {
+								fallbackFlags = { "-I/usr/local/include" },
+							},
 						})
 					end,
 				},

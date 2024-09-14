@@ -18,8 +18,8 @@ return {
 			mappings = {
 				go_curr_heading = "g.",
 				go_parent_heading = "gp",
-				go_next_heading = "gj",
-				go_prev_heading = "gk",
+				go_next_heading = "]]",
+				go_prev_heading = "[[",
 			},
 		},
 	},
