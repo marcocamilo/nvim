@@ -90,14 +90,12 @@ return {
 				h = { "<cmd>MarkdownHeaders<CR>", "Markdown Headers" },
 				t = { "<cmd>MDInsertToc<CR>", "Insert TOC" },
 			},
-			n = {
-				name = "Noice",
-				l = { "<cmd>Noice last<cr>", "See last message" },
-				h = { "<cmd>Telescope notify<cr>", "Message history" },
-				a = { "<cmd>Noice all<cr>", "See all messages" },
-				d = { "<cmd>Noice dismiss<cr>", "Dismiss all messages" },
-				e = { "<cmd>Noice errors<cr>", "See all error messages" },
-			},
+      n = {
+        name = "Obsidian",
+        n = { "<cmd>ObsidianNew<CR>", "Create New Note" },
+        b = { "<cmd>ObsidianBacklinks<CR>", "Note Backlinks" },
+        s = { "<cmd>ObsidianSearch<CR>", "Note Search" },
+      },
 			l = {
 				name = "LSP",
 				a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -110,6 +108,14 @@ return {
 				q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
 				R = { "<cmd>LspRestart<CR>", "Restart LSP" },
 				s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+			},
+			[";"] = {
+				name = "Noice",
+				l = { "<cmd>Noice last<cr>", "See last message" },
+				h = { "<cmd>Telescope notify<cr>", "Message history" },
+				a = { "<cmd>Noice all<cr>", "See all messages" },
+				d = { "<cmd>Noice dismiss<cr>", "Dismiss all messages" },
+				e = { "<cmd>Noice errors<cr>", "See all error messages" },
 			},
 			["?"] = {
 				name = "Search",

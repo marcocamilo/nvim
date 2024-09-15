@@ -44,8 +44,11 @@ return {
 					},
 				},
 				live_grep = {
-					theme = "dropdown",
+					theme = "ivy",
 				},
+        grep_string = {
+          theme = "ivy",
+        },
 			},
 		})
 
