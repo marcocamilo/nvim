@@ -11,8 +11,8 @@ return {
     -- configure nvim-tree
     nvimtree.setup({
       view = {
-        width = 30,
-        side = "left",
+        width = 50,
+        side = "right",
       },
       update_focused_file = {
          enable = true,
@@ -50,7 +50,7 @@ return {
         enable = true,
         show_on_dirs = true,
         icons = {
-          hint = "",
+          hint = "󰠠",
           info = "",
           warning = "",
           error = "",
