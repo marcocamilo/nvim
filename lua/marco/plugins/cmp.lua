@@ -76,7 +76,7 @@ return {
 						tags = "[󰏢]",
 						treesitter = "[]",
 						latex_symbols = "[]",
-						-- emoji = "[󰱨]",
+						emoji = "[󰱨]",
 					}
 
 					if require("lspkind").symbol_map[vim_item.kind] and vim_item.kind then
@@ -109,8 +109,8 @@ return {
 				},
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
-				{ name = "buffer" },
-				{ name = "treesitter" },
+				-- { name = "buffer" },
+				-- { name = "treesitter" },
 				{ name = "latex_symbols" },
 				-- { name = "emoji" },
 			},
